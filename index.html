@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>NIBRAS · Premium Dining, Poonoor</title>
+  <!-- Google Fonts: Elegant serif + modern sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-deep: #0c0b09;
+      --bg-charcoal: #141210;
+      --bg-card: #1e1b16;
+      --gold: #d4af7a;
+      --gold-soft: #e7cfae;
+      --cream: #f6efe7;
+      --text-light: #eae2d6;
+      --text-muted: #b9ab9a;
+      --shadow-gold: 0 15px 35px rgba(212, 175, 122, 0.08);
+      --glass: rgba(20, 18, 15, 0.75);
+      --border-gold: rgba(212, 175, 122, 0.25);
+      --success: #4CAF50;
+      --whatsapp: #25D366;
+      --error: #ff6b6b;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== DESKTOP NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 0;
+      transition: all 0.3s ease;
+      background: transparent;
+      backdrop-filter: blur(0px);
+      display: block;
+    }
+
+    .navbar.scrolled {
+      background: rgba(12, 11, 9, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 0.6rem 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-soft);
+      letter-spacing: 5px;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .nav-links a i {
+      margin-right: 5px;
+      color: var(--gold);
+    }
+
+    .nav-links .btn {
+      background: var(--gold);
+      color: #0c0b09;
+      padding: 0.6rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 5px 15px rgba(212, 175, 122, 0.25);
+      font-size: 0.9rem;
+    }
+
+    .nav-links .btn:hover {
+      background: #b9924f;
+      transform: translateY(-2px);
+    }
+
+    /* ========== MOBILE TOP HEADER ========== */
+    .mobile-top-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1002;
+      background: rgba(12, 11, 9, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 122, 0.25);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      height: 60px;
+    }
+
+    .mobile-top-header .mh-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-top-header .mh-left a {
+      display: flex;
+      align-items: center;
+      color: var(--gold-soft);
+      text-decoration: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .mobile-top-header .mh-left a i {
+      font-size: 1.4rem;
+    }
+
+    .mobile-top-header .mh-center {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold-soft);
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .mobile-top-header .mh-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-top-header .mh-right .menu-btn {
+      color: var(--gold-soft);
+      font-size: 1.6rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: transform 0.2s;
+    }
+
+    .mobile-top-header .mh-right .menu-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ========== MOBILE DROPDOWN MENU ========== */
+    .mobile-dropdown {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 280px;
+      background: rgba(12, 11, 9, 0.98);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-gold);
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      z-index: 1003;
+      overflow: hidden;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-dropdown.active {
+      display: block;
+    }
+
+    .mobile-dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      color: var(--cream);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(212, 175, 122, 0.1);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .mobile-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-dropdown a:hover {
+      background: rgba(212, 175, 122, 0.1);
+      color: var(--gold);
+      padding-left: 25px;
+    }
+
+    .mobile-dropdown a i {
+      color: var(--gold);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .mobile-dropdown .dropdown-title {
+      padding: 12px 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold-soft);
+      letter-spacing: 3px;
+      border-bottom: 1px solid var(--border-gold);
+      background: rgba(212, 175, 122, 0.05);
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.7rem 1.5rem;
+      background: var(--gold);
+      color: #0c0b09;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 5px 15px rgba(212, 175, 122, 0.25);
+      letter-spacing: 0.4px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 122, 0.1);
+      color: var(--gold-soft);
+    }
+
+    .btn:hover {
+      background: #b9924f;
+      transform: translateY(-2px);
+    }
+
+    /* ========== RESERVATION MODAL ========== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: var(--gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: 0.2s;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      color: var(--cream);
+      transform: scale(1.2) rotate(90deg);
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold-soft);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .modal-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ========== RESERVATION FORM ========== */
+    .reserve-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #1b1916;
+      border: 1px solid rgba(212, 175, 122, 0.3);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      color: var(--cream);
+      outline: none;
+      width: 100%;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 122, 0.15);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(185, 171, 154, 0.5);
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-error {
+      color: var(--error);
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .form-submit-btn {
+      grid-column: span 2;
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .confirm-msg {
+      text-align: center;
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin-top: 1rem;
+      color: var(--success);
+      display: none;
+      font-weight: 500;
+    }
+
+    .confirm-msg i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(12,11,9,0.8) 90%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 3rem;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 5.5rem;
+      letter-spacing: 10px;
+      color: var(--cream);
+      text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.6rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-soft);
+      margin: 1rem 0 0.5rem;
+    }
+
+    .hero-location {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    /* ========== FEATURED PRODUCTS (BELOW HERO) ========== */
+    .featured-products-section {
+      padding: 3rem 0 2rem;
+      background: var(--bg-charcoal);
+      border-bottom: 1px solid rgba(212,175,122,0.15);
+    }
+
+    .featured-products-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--gold-soft);
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .featured-products-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .featured-products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .featured-product-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      min-width: 280px;
+    }
+
+    .featured-product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-color: var(--gold);
+    }
+
+    .featured-product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-product-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(30,27,22,1), transparent);
+    }
+
+    .featured-product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--gold);
+      color: #0c0b09;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .featured-product-body {
+      padding: 1.5rem;
+    }
+
+    .featured-product-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .featured-product-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .featured-product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .featured-product-price {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .featured-product-btn {
+      background: var(--gold);
+      color: #0c0b09;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .featured-product-btn:hover {
+      background: #b9924f;
+      transform: scale(1.05);
+    }
+
+    /* ========== NAVBAR-STYLE ACTION BUTTONS ========== */
+    .navbar-action-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 2rem 0;
+      background: var(--bg-charcoal);
+      border-bottom: 1px solid rgba(212,175,122,0.15);
+    }
+
+    .navbar-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar-action-btn.view-menu {
+      background: linear-gradient(135deg, #e7cfae, #d4af7a, #c49a5a);
+      color: #0c0b09;
+      box-shadow: 0 5px 20px rgba(212, 175, 122, 0.3);
+    }
+
+    .navbar-action-btn.reserve-table {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .navbar-action-btn.view-menu::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .navbar-action-btn.reserve-table::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212,175,122,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .navbar-action-btn:hover::before {
+      left: 100%;
+    }
+
+    .navbar-action-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .navbar-action-btn.view-menu:hover {
+      background: linear-gradient(135deg, #f0dcb8, #e7cfae, #d4af7a);
+    }
+
+    .navbar-action-btn.reserve-table:hover {
+      background: var(--gold);
+      color: #0c0b09;
+    }
+
+    .navbar-action-btn i {
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+
+    .navbar-action-btn:hover i {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    /* ========== CHEF SECTION (ABOVE GALLERY) ========== */
+    .chefs-section {
+      padding: 5rem 0;
+      background: var(--bg-charcoal);
+      border-bottom: 1px solid rgba(212,175,122,0.15);
+    }
+
+    .chefs-title {
+      text-align: center;
+      font-size: 2.8rem;
+      color: var(--gold-soft);
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .chefs-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    .chefs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .chef-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .chef-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-color: var(--gold);
+    }
+
+    .chef-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border-gold);
+      transition: transform 0.4s;
+    }
+
+    .chef-card:hover .chef-image {
+      transform: scale(1.08);
+    }
+
+    .chef-body {
+      padding: 1.5rem;
+    }
+
+    .chef-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .chef-role {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .chef-specialty {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .chef-experience {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212, 175, 122, 0.1);
+      color: var(--gold-soft);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .chef-experience i {
+      font-size: 0.8rem;
+    }
+
+    /* ========== MENU ITEMS PAGE ========== */
+    .menu-items-page {
+      padding-top: 100px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+      background: var(--bg-deep);
+    }
+
+    .menu-page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .menu-page-title {
+      font-size: 2.8rem;
+      color: var(--gold-soft);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-page-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ========== SMOOTH ANIMATED CATEGORY NAVBAR ========== */
+    .category-navbar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      background: rgba(20, 18, 16, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-gold);
+      border-radius: 60px;
+      padding: 0.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-tab {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 2;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      min-width: 100px;
+    }
+
+    .category-tab:hover {
+      color: var(--gold-soft);
+      background: rgba(212, 175, 122, 0.08);
+    }
+
+    .category-tab.active {
+      color: #0c0b09;
+      font-weight: 700;
+      transform: scale(1.02);
+      text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+    }
+
+    .category-tab.active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #e7cfae, #d4af7a, #c49a5a);
+      border-radius: 50px;
+      z-index: -1;
+      box-shadow: 0 4px 15px rgba(212, 175, 122, 0.4);
+      animation: tabGlow 0.4s ease;
+    }
+
+    @keyframes tabGlow {
+      0% {
+        opacity: 0.5;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Menu Items Grid */
+    .menu-items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px;
+    }
+
+    .menu-item-card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      animation: cardFadeIn 0.5s forwards;
+    }
+
+    .menu-item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+      border-color: var(--gold);
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border-gold);
+      transition: transform 0.4s;
+    }
+
+    .menu-item-card:hover .menu-item-image {
+      transform: scale(1.08);
+    }
+
+    .menu-item-content {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-item-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .menu-item-price {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .menu-item-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .menu-item-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(212, 175, 122, 0.1);
+      color: var(--gold-soft);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      align-self: flex-start;
+    }
+
+    .menu-item-category i {
+      font-size: 0.7rem;
+    }
+
+    .menu-item-btn {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    /* ========== GALLERY ========== */
+    .gallery {
+      column-count: 3;
+      column-gap: 1.2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      margin-bottom: 1.2rem;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      color: var(--gold-soft);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: var(--text-muted);
+    }
+
+    /* about */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-grid img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .about-text h2 {
+      font-size: 2.6rem;
+      color: var(--gold-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* dishes */
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .dish-card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .dish-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+    }
+
+    .dish-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .dish-body {
+      padding: 1.2rem;
+    }
+
+    .dish-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cream);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .dish-price {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .dish-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0.5rem 0;
+    }
+
+    .order-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 0.45rem 1rem;
+      border-radius: 30px;
+      color: var(--gold);
+      font-size: 0.85rem;
+      display: inline-flex;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* ========== FILTER GROUP ========== */
+    .filter-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      border-radius: 60px;
+    }
+
+    .filter-group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.7rem 1.5rem;
+      background: rgba(20, 18, 16, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-gold);
+      border-radius: 60px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+    }
+
+    .filter-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      flex-shrink: 0;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      scroll-snap-align: center;
+    }
+
+    .filter-btn:hover {
+      color: var(--gold-soft);
+      background: rgba(212, 175, 122, 0.1);
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      color: #0c0b09;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(212, 175, 122, 0.3);
+    }
+
+    /* why cards */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      background: rgba(30,27,22,0.6);
+      padding: 2rem 1rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(212, 175, 122, 0.1);
+    }
+
+    .feature-card i {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    /* testimonials */
+    .review-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 20px;
+      min-width: 340px;
+      border: 1px solid var(--border-gold);
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .review-card i.fa-star {
+      color: var(--gold);
+    }
+
+    /* ========== IMPROVED CONTACT SECTION ========== */
+    .contact-section {
+      background: linear-gradient(180deg, rgba(12,11,9,0.9), rgba(20,18,16,0.95));
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 5rem 0;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .contact-info-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info-header h3 {
+      font-size: 2rem;
+      color: var(--gold-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(212, 175, 122, 0.08);
+      border-radius: 15px;
+      border: 1px solid rgba(212, 175, 122, 0.15);
+      transition: all 0.3s;
+    }
+
+    .contact-method:hover {
+      background: rgba(212, 175, 122, 0.15);
+      transform: translateX(5px);
+    }
+
+    .contact-method-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c0b09;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .contact-method-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--cream);
+    }
+
+    .contact-method-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-method-info a {
+      color: var(--gold-soft);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .contact-method-info a:hover {
+      color: var(--gold);
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.9rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .contact-action-btn.call {
+      background: var(--gold);
+      color: #0c0b09;
+    }
+
+    .contact-action-btn.whatsapp {
+      background: var(--whatsapp);
+      color: white;
+    }
+
+    .contact-action-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+
+    .contact-action-btn.facebook {
+      background: #1877F2;
+      color: white;
+    }
+
+    .contact-action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Map section */
+    .map-container {
+      border-radius: 25px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      box-shadow: var(--shadow-gold);
+      height: 100%;
+      min-height: 400px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border: none;
+    }
+
+    .opening-hours {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .opening-hours h4 {
+      color: var(--gold-soft);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(212, 175, 122, 0.1);
+      font-size: 0.9rem;
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-day {
+      color: var(--text-muted);
+    }
+
+    .hours-time {
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+
+    /* ========== PAGE SWITCHING ========== */
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    /* Cart Page Styles */
+    .cart-page-container {
+      padding-top: 100px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.25s;
+    }
+
+    .back-btn:hover {
+      background: rgba(212, 175, 122, 0.1);
+    }
+
+    /* Order Page Styles */
+    .delivery-info {
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .delivery-info i {
+      color: var(--success);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .delivery-info h3 {
+      color: var(--success);
+      margin-bottom: 0.3rem;
+    }
+
+    .order-item-row {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .order-qty-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0c0b09;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0a0907;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid rgba(212,175,122,0.1);
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* floating whatsapp */
+    .whats-float {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--whatsapp);
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      z-index: 1001;
+      transition: 0.2s;
+    }
+
+    /* ========== MOBILE ONLY STYLES ========== */
+    @media (max-width: 900px) {
+      .about-grid, .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 { font-size: 3.5rem; }
+      .gallery { column-count: 2; }
+      
+      .navbar {
+        display: none;
+      }
+      
+      .mobile-top-header {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: none;
+      }
+      
+      .hero {
+        padding-top: 60px;
+      }
+      
+      .hero-content {
+        padding-top: 2rem;
+      }
+      
+      .navbar-action-buttons {
+        gap: 0.5rem;
+        padding: 1rem 15px;
+      }
+
+      .navbar-action-btn {
+        flex: 1;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+        gap: 5px;
+        letter-spacing: 0.3px;
+        min-width: 0;
+      }
+
+      .navbar-action-btn i {
+        font-size: 0.85rem;
+      }
+
+      .filter-wrapper {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+      
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .map-container {
+        min-height: 300px;
+      }
+
+      .featured-products-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 0.5rem 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .featured-products-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .featured-product-card {
+        width: 85%;
+        min-width: 85%;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+
+      .chefs-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .chef-image {
+        height: 250px;
+      }
+
+      .category-navbar {
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0.4rem;
+      }
+
+      .category-tab {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        min-width: 85px;
+      }
+
+      .menu-items-list {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+      }
+    }
+
+    .bottom-nav {
+      display: none !important;
+    }
+    
+    .sticky-mobile-order {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== DESKTOP NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <div class="logo">NIBRAS</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#" onclick="showPage('menuItemsPage'); return false;">Menu</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#" onclick="showPage('cartPage'); return false;"><i class="fas fa-shopping-cart"></i> Cart</a>
+        <a href="#" onclick="showPage('orderPage'); return false;"><i class="fas fa-clipboard-list"></i> Order</a>
+        <button class="btn" onclick="openReservationModal()">Reserve a Table</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE TOP HEADER ========== -->
+  <div class="mobile-top-header">
+    <div class="mh-left">
+      <a href="#" onclick="showPage('cartPage'); return false;">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <a href="#" onclick="showPage('orderPage'); return false;">
+        <i class="fas fa-clipboard-list"></i>
+      </a>
+    </div>
+    <div class="mh-center">NIBRAS</div>
+    <div class="mh-right">
+      <button class="menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== MOBILE DROPDOWN MENU ========== -->
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="dropdown-title">Menu</div>
+    <a href="#home" onclick="toggleMobileMenu(); showPage('homePage');">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="#" onclick="toggleMobileMenu(); showPage('menuItemsPage');">
+      <i class="fas fa-utensils"></i> Menu Items
+    </a>
+    <a href="#about" onclick="toggleMobileMenu(); showPage('homePage');">
+      <i class="fas fa-info-circle"></i> About
+    </a>
+    <a href="#discover" onclick="toggleMobileMenu(); showPage('homePage');">
+      <i class="fas fa-star"></i> Signature Items
+    </a>
+    <a href="#gallery" onclick="toggleMobileMenu(); showPage('homePage');">
+      <i class="fas fa-images"></i> Gallery
+    </a>
+    <a href="#contact" onclick="toggleMobileMenu(); showPage('homePage');">
+      <i class="fas fa-map-marker-alt"></i> Contact
+    </a>
+    <a href="#" onclick="toggleMobileMenu(); openReservationModal();">
+      <i class="fas fa-calendar-check"></i> Reserve
+    </a>
+  </div>
+
+  <!-- ========== HOME PAGE ========== -->
+  <div id="homePage" class="page-section active">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>NIBRAS</h1>
+        <div class="hero-sub">Where Every Bite Becomes an Experience.</div>
+        <div class="hero-location">Poonoor, Kerala</div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURED PRODUCTS (3 CARDS) ========== -->
+    <section class="featured-products-section">
+      <div class="featured-products-title">Chef's Specials</div>
+      <div class="featured-products-subtitle">Handpicked favourites from our kitchen</div>
+      
+      <div class="featured-products-grid">
+        <!-- Product 1: Manthi -->
+        <div class="featured-product-card">
+          <div class="featured-product-image">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" alt="Kerala Chicken Manthi" style="width:100%;height:100%;object-fit:cover;">
+            <div class="featured-product-badge">Bestseller</div>
+          </div>
+          <div class="featured-product-body">
+            <div class="featured-product-title">Chicken Manthi</div>
+            <p class="featured-product-desc">Kerala's traditional Malabar manthi with aromatic ghee rice, tender chicken, and soulful spices.</p>
+            <div class="featured-product-footer">
+              <span class="featured-product-price">₹320</span>
+              <button class="featured-product-btn" onclick="addToCart('Chicken Manthi',320); showPage('orderPage');">
+                <i class="fas fa-cart-plus"></i> Order
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Biriyani -->
+        <div class="featured-product-card">
+          <div class="featured-product-image">
+            <img src="https://images.unsplash.com/photo-1563379091339-03017a5067bb?q=80&w=600&auto=format&fit=crop" alt="Nibras Special Biriyani" style="width:100%;height:100%;object-fit:cover;">
+            <div class="featured-product-badge">Signature</div>
+          </div>
+          <div class="featured-product-body">
+            <div class="featured-product-title">Nibras Special Biriyani</div>
+            <p class="featured-product-desc">Our legendary biriyani with saffron rice, succulent meat, and secret Nibras spice blend.</p>
+            <div class="featured-product-footer">
+              <span class="featured-product-price">₹350</span>
+              <button class="featured-product-btn" onclick="addToCart('Nibras Special Biriyani',350); showPage('orderPage');">
+                <i class="fas fa-cart-plus"></i> Order
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: Sadya -->
+        <div class="featured-product-card">
+          <div class="featured-product-image">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop" alt="Kerala Sadya" style="width:100%;height:100%;object-fit:cover;">
+            <div class="featured-product-badge">Traditional</div>
+          </div>
+          <div class="featured-product-body">
+            <div class="featured-product-title">Kerala Sadya</div>
+            <p class="featured-product-desc">A grand feast served on banana leaf with 20+ traditional Kerala dishes and payasam.</p>
+            <div class="featured-product-footer">
+              <span class="featured-product-price">₹300</span>
+              <button class="featured-product-btn" onclick="addToCart('Kerala Sadya',300); showPage('orderPage');">
+                <i class="fas fa-cart-plus"></i> Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NAVBAR-STYLE ACTION BUTTONS ========== -->
+    <section class="navbar-action-buttons">
+      <button class="navbar-action-btn view-menu" onclick="showPage('menuItemsPage')">
+        <i class="fas fa-utensils"></i> View Full Menu
+      </button>
+      <button class="navbar-action-btn reserve-table" onclick="openReservationModal()">
+        <i class="fas fa-calendar-check"></i> Reserve Table
+      </button>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop" alt="restaurant interior">
+        <div class="about-text">
+          <h2>More Than a Meal. It's an Experience.</h2>
+          <p>NIBRAS brings together great food, beautiful ambience and memorable hospitality in Poonoor. Indulge in premium flavours crafted with passion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE ITEMS -->
+    <section class="section" id="discover">
+      <div class="container">
+        <h2 class="section-title">Our Signature Items</h2>
+        
+        <div class="filter-wrapper">
+          <div class="filter-group">
+            <button class="filter-btn" data-filter="Starters">Starters</button>
+            <button class="filter-btn" data-filter="Main Course">Main Course</button>
+            <button class="filter-btn" data-filter="Rice">Rice</button>
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Special">Special</button>
+            <button class="filter-btn" data-filter="Grills">Grills</button>
+            <button class="filter-btn" data-filter="Desserts">Desserts</button>
+          </div>
+        </div>
+
+        <div class="dish-grid" id="dishGrid"></div>
+      </div>
+    </section>
+
+    <!-- WHY NIBRAS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Why NIBRAS</h2>
+        <div class="why-grid">
+          <div class="feature-card"><i class="fas fa-leaf"></i><h3>Fresh Ingredients</h3><p>Farm sourced daily.</p></div>
+          <div class="feature-card"><i class="fas fa-fire"></i><h3>Authentic Flavours</h3><p>Time-honoured recipes.</p></div>
+          <div class="feature-card"><i class="fas fa-couch"></i><h3>Premium Ambience</h3><p>Luxurious comfort.</p></div>
+          <div class="feature-card"><i class="fas fa-concierge-bell"></i><h3>Exceptional Hospitality</h3><p>Warm gestures, perfect service.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CHEFS SECTION (ABOVE GALLERY) ========== -->
+    <section class="chefs-section">
+      <h2 class="chefs-title">Meet Our Chefs</h2>
+      <p class="chefs-subtitle">The culinary masters behind NIBRAS</p>
+      
+      <div class="chefs-grid">
+        <!-- Chef 1 -->
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=600&auto=format&fit=crop" alt="Chef Rajesh" class="chef-image">
+          <div class="chef-body">
+            <h3 class="chef-name">Chef Rajesh</h3>
+            <div class="chef-role">Executive Chef</div>
+            <p class="chef-specialty">Kerala traditional cuisine & Biriyani specialist</p>
+            <div class="chef-experience">
+              <i class="fas fa-award"></i> 15+ Years Experience
+            </div>
+          </div>
+        </div>
+
+        <!-- Chef 2 -->
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?q=80&w=600&auto=format&fit=crop" alt="Chef Anitha" class="chef-image">
+          <div class="chef-body">
+            <h3 class="chef-name">Chef Anitha</h3>
+            <div class="chef-role">Pastry & Dessert Chef</div>
+            <p class="chef-specialty">Traditional Kerala desserts & modern fusion sweets</p>
+            <div class="chef-experience">
+              <i class="fas fa-award"></i> 10+ Years Experience
+            </div>
+          </div>
+        </div>
+
+        <!-- Chef 3 -->
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&auto=format&fit=crop" alt="Chef Mohammed" class="chef-image">
+          <div class="chef-body">
+            <h3 class="chef-name">Chef Mohammed</h3>
+            <div class="chef-role">Grill & Kebab Chef</div>
+            <p class="chef-specialty">Malabar grills, kebabs & tandoori specialties</p>
+            <div class="chef-experience">
+              <i class="fas fa-award"></i> 12+ Years Experience
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=600">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600">
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <div class="carousel">
+          <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>"Premium ambience, tasted amazing"</p><br><strong>Rahul</strong></div>
+          <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>"Best biriyani in Kerala"</p><br><strong>Anjali</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPROVED CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <!-- Contact Info Card -->
+        <div class="contact-info-card">
+          <div class="contact-info-header">
+            <h3>Get in Touch</h3>
+            <p>We'd love to hear from you!</p>
+          </div>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="contact-method-info">
+                <h4>Phone</h4>
+                <p><a href="tel:+919999999999">+91 99999 99999</a></p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-method-info">
+                <h4>WhatsApp</h4>
+                <p><a href="https://wa.me/919999999999" target="_blank">Chat with us</a></p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-method-info">
+                <h4>Location</h4>
+                <p>Poonoor, Kerala, India</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-method-info">
+                <h4>Email</h4>
+                <p><a href="mailto:info@nibras.com">info@nibras.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="contact-buttons">
+            <a href="tel:+919999999999" class="contact-action-btn call">
+              <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+            <a href="https://wa.me/919999999999" target="_blank" class="contact-action-btn whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://instagram.com/nibras" target="_blank" class="contact-action-btn instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://facebook.com/nibras" target="_blank" class="contact-action-btn facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+          </div>
+
+          <!-- Opening Hours -->
+          <div class="opening-hours">
+            <h4><i class="fas fa-clock"></i> Opening Hours</h4>
+            <div class="hours-row">
+              <span class="hours-day">Monday - Friday</span>
+              <span class="hours-time">11:00 AM - 11:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday - Sunday</span>
+              <span class="hours-time">10:00 AM - 12:00 AM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.928!2d76.015!3d11.305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba5e4e6c0f1d9f7%3A0x8b7a67f5c8a0e6a2!2sPoonoor%2C%20Kerala!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div><h2>NIBRAS</h2><p>Where every bite becomes an experience.</p></div>
+        <div><h4>Quick Links</h4><a href="#home">Home</a> <a href="#about">About</a> <a href="#gallery">Gallery</a></div>
+        <div><p>© 2026 NIBRAS. All Rights Reserved.</p></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========== MENU ITEMS PAGE ========== -->
+  <section id="menuItemsPage" class="page-section">
+    <div class="container menu-items-page">
+      <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back</button>
+      
+      <div class="menu-page-header">
+        <h2 class="menu-page-title">Our Menu</h2>
+        <p class="menu-page-desc">Explore our delicious offerings</p>
+      </div>
+      
+      <!-- Smooth Animated Category Navbar -->
+      <div class="category-navbar">
+        <button class="category-tab active" onclick="filterMenuItems('all'); highlightTab(this)">All</button>
+        <button class="category-tab" onclick="filterMenuItems('breakfast'); highlightTab(this)">Breakfast</button>
+        <button class="category-tab" onclick="filterMenuItems('lunch'); highlightTab(this)">Lunch</button>
+        <button class="category-tab" onclick="filterMenuItems('dinner'); highlightTab(this)">Dinner</button>
+      </div>
+      
+      <div class="menu-items-list" id="menuItemsList"></div>
+    </div>
+  </section>
+
+  <!-- ========== CART PAGE ========== -->
+  <section id="cartPage" class="page-section">
+    <div class="container cart-page-container">
+      <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back</button>
+      <h2 class="section-title">Your Cart</h2>
+      <p class="section-desc">Review your items and checkout</p>
+      <div class="cart-bar">
+        <h3><i class="fas fa-shopping-cart"></i> Cart Items</h3>
+        <div class="cart-items" id="cartItemsPage"></div>
+        <div style="display:flex; justify-content:space-between; font-weight:bold; margin-top: 1rem;">
+          <span>Total: ₹<span id="cartTotalPage">0</span></span>
+          <a href="#" id="orderWhatsappPage" class="btn">Checkout via WhatsApp</a>
+        </div>
+        <div style="text-align:center; margin-top: 2rem;">
+          <button class="btn-outline btn" onclick="showPage('homePage')">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ORDER PAGE ========== -->
+  <section id="orderPage" class="page-section">
+    <div class="container cart-page-container">
+      <button class="back-btn" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Back</button>
+      <h2 class="section-title">Your Order</h2>
+      <p class="section-desc">Items you have selected</p>
+      
+      <div class="delivery-info">
+        <i class="fas fa-truck"></i>
+        <h3>Estimated Delivery: 30-45 Minutes</h3>
+        <p>Your food will be delivered fresh and hot!</p>
+      </div>
+      
+      <div id="orderItemsList"></div>
+      
+      <div style="text-align:center; margin-top: 2rem;">
+        <button class="btn" onclick="showPage('cartPage')">View Cart</button>
+        <button class="btn-outline btn" onclick="showPage('homePage')" style="margin-left: 10px;">Continue Shopping</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- floating whatsapp -->
+  <a href="https://wa.me/919999999999" class="whats-float"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- ========== RESERVATION MODAL (ONLY OPENS ON BUTTON CLICK) ========== -->
+  <div class="modal-overlay" id="reservationModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeReservationModal()">&times;</button>
+      <div class="modal-title">Reserve Your Table</div>
+      <div class="modal-subtitle">Book your perfect dining experience</div>
+      
+      <div class="reserve-form">
+        <div class="form-group">
+          <label for="resName">Full Name</label>
+          <input type="text" id="resName" placeholder="Enter your name">
+          <div class="form-error" id="nameError">Please enter your name</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="resPhone">Phone Number</label>
+          <input type="tel" id="resPhone" placeholder="+91 99999 99999">
+          <div class="form-error" id="phoneError">Please enter phone number</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="resDate">Date</label>
+          <input type="date" id="resDate">
+          <div class="form-error" id="dateError">Please select a date</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="resTime">Time</label>
+          <input type="time" id="resTime">
+          <div class="form-error" id="timeError">Please select a time</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="resGuests">Number of Guests</label>
+          <input type="number" id="resGuests" placeholder="e.g., 2 or 4" min="1" max="50">
+          <div class="form-error" id="guestsError">Please enter number of guests</div>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="resReq">Special Request (Optional)</label>
+          <textarea id="resReq" placeholder="Any special requirements? e.g., Birthday cake, window seat..."></textarea>
+        </div>
+        
+        <div style="grid-column: span 2; text-align:center; margin-top: 0.5rem;">
+          <button class="btn form-submit-btn" onclick="confirmReservation()">
+            <i class="fas fa-calendar-check"></i> Confirm Reservation
+          </button>
+        </div>
+      </div>
+      
+      <div id="resMessageModal" class="confirm-msg">
+        <i class="fas fa-check-circle"></i>
+        <strong>Reservation Confirmed!</strong><br>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">We've sent your reservation details via WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    let savedScrollPosition = 0;
+
+    // ===== MOBILE MENU FUNCTIONS =====
+    function toggleMobileMenu() {
+      const dropdown = document.getElementById('mobileDropdown');
+      dropdown.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('mobileDropdown');
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      
+      if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+
+    // ===== PAGE SWITCHING =====
+    function showPage(pageId) {
+      toggleMobileMenu();
+      
+      if (pageId === 'cartPage' || pageId === 'orderPage' || pageId === 'menuItemsPage') {
+        savedScrollPosition = window.scrollY;
+      }
+      
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      document.getElementById(pageId).classList.add('active');
+      
+      if (pageId === 'cartPage' || pageId === 'orderPage' || pageId === 'menuItemsPage') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: savedScrollPosition, behavior: 'smooth' });
+      }
+      
+      if (pageId === 'cartPage') {
+        renderCartPage();
+      }
+      
+      if (pageId === 'orderPage') {
+        renderOrderPage();
+      }
+      
+      if (pageId === 'menuItemsPage') {
+        renderMenuItems();
+      }
+    }
+
+    // ===== SMOOTH TAB HIGHLIGHT =====
+    function highlightTab(button) {
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      button.classList.add('active');
+    }
+
+    // ===== RESERVATION MODAL FUNCTIONS (ONLY OPENS ON BUTTON CLICK) =====
+    function openReservationModal() {
+      document.getElementById('reservationModal').classList.add('active');
+      document.getElementById('resName').value = '';
+      document.getElementById('resPhone').value = '';
+      document.getElementById('resDate').value = '';
+      document.getElementById('resTime').value = '';
+      document.getElementById('resGuests').value = '';
+      document.getElementById('resReq').value = '';
+      
+      document.querySelectorAll('.form-error').forEach(err => err.classList.remove('show'));
+      document.getElementById('resMessageModal').style.display = 'none';
+    }
+
+    function closeReservationModal() {
+      document.getElementById('reservationModal').classList.remove('active');
+    }
+
+    function validateForm() {
+      let valid = true;
+      
+      const name = document.getElementById('resName').value.trim();
+      if (!name) {
+        document.getElementById('nameError').classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById('nameError').classList.remove('show');
+      }
+      
+      const phone = document.getElementById('resPhone').value.trim();
+      if (!phone || phone.length < 10) {
+        document.getElementById('phoneError').classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById('phoneError').classList.remove('show');
+      }
+      
+      const date = document.getElementById('resDate').value;
+      if (!date) {
+        document.getElementById('dateError').classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById('dateError').classList.remove('show');
+      }
+      
+      const time = document.getElementById('resTime').value;
+      if (!time) {
+        document.getElementById('timeError').classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById('timeError').classList.remove('show');
+      }
+      
+      const guests = document.getElementById('resGuests').value;
+      if (!guests || parseInt(guests) < 1) {
+        document.getElementById('guestsError').classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById('guestsError').classList.remove('show');
+      }
+      
+      return valid;
+    }
+
+    function confirmReservation() {
+      if (!validateForm()) {
+        return;
+      }
+      
+      const name = document.getElementById('resName').value;
+      const phone = document.getElementById('resPhone').value;
+      const date = document.getElementById('resDate').value;
+      const time = document.getElementById('resTime').value;
+      const guests = document.getElementById('resGuests').value;
+      const special = document.getElementById('resReq').value;
+
+      const msg = encodeURIComponent(`Reservation Details:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}\nGuests: ${guests}\nSpecial Request: ${special || 'None'}`);
+      window.open(`https://wa.me/919999999999?text=${msg}`, '_blank');
+      
+      document.getElementById('resMessageModal').style.display = 'block';
+      
+      setTimeout(() => {
+        closeReservationModal();
+      }, 3000);
+    }
+
+    document.getElementById('reservationModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeReservationModal();
+      }
+    });
+
+    // ===== MENU ITEMS PAGE =====
+    const allMenuItems = [
+      // Breakfast Items
+      { name: "Masala Dosa", desc: "Crispy dosa with potato masala, served with chutney and sambar", price: 80, category: "breakfast", image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=400&auto=format&fit=crop" },
+      { name: "Idli with Sambar", desc: "Steamed rice cakes served with hot sambar and chutney", price: 60, category: "breakfast", image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=400&auto=format&fit=crop" },
+      { name: "Kerala Puttu", desc: "Steamed rice flour cake with coconut, served with banana and curry", price: 90, category: "breakfast", image: "https://images.unsplash.com/photo-1625943553852-781c6e46b0c0?q=80&w=400&auto=format&fit=crop" },
+      { name: "Vada with Chutney", desc: "Crispy lentil fritters with coconut chutney and sambar", price: 70, category: "breakfast", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=400&auto=format&fit=crop" },
+      { name: "Upma", desc: "Semolina dish with vegetables and cashews", price: 75, category: "breakfast", image: "https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" },
+      { name: "Bread Omelette", desc: "Toasted bread with egg omelette", price: 100, category: "breakfast", image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chappathi with Curry", desc: "Soft chappathis with vegetable curry", price: 85, category: "breakfast", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=400&auto=format&fit=crop" },
+      { name: "Puri with Masala", desc: "Deep fried bread with potato masala", price: 95, category: "breakfast", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=400&auto=format&fit=crop" },
+      { name: "Kerala Appam", desc: "Lacy pancakes with coconut milk, served with stew", price: 110, category: "breakfast", image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=400&auto=format&fit=crop" },
+      { name: "Kadala Curry", desc: "Black chickpea curry with chappathi or puttu", price: 120, category: "breakfast", image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=400&auto=format&fit=crop" },
+
+      // Lunch Items
+      { name: "Nibras Special Biriyani", desc: "Our signature biriyani with tender meat, saffron rice, and side dish", price: 350, category: "lunch", image: "https://images.unsplash.com/photo-1563379091339-03017a5067bb?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chicken Curry + Rice", desc: "Homestyle chicken curry with steamed rice", price: 220, category: "lunch", image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=400&auto=format&fit=crop" },
+      { name: "Mutton Curry + Rice", desc: "Spicy mutton curry with steamed rice", price: 280, category: "lunch", image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=400&auto=format&fit=crop" },
+      { name: "Fish Curry + Rice", desc: "Kerala style fish curry with rice", price: 250, category: "lunch", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400&auto=format&fit=crop" },
+      { name: "Veg Meals", desc: "Traditional Kerala thali with rice, curry, and side dishes", price: 180, category: "lunch", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chicken Meals", desc: "Kerala style chicken thali with rice", price: 250, category: "lunch", image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=400&auto=format&fit=crop" },
+      { name: "Mutton Meals", desc: "Kerala style mutton thali with rice", price: 300, category: "lunch", image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" },
+      { name: "Beef Curry + Rice", desc: "Spicy beef curry with rice", price: 260, category: "lunch", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop" },
+      { name: "Prawn Curry + Rice", desc: "Kerala style prawn curry with rice", price: 280, category: "lunch", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" },
+      { name: "Ghee Roast + Dosa", desc: "Ghee roasted dosa with chutney and sambar", price: 140, category: "lunch", image: "https://images.unsplash.com/photo-1630383249896-424e482df921?q=80&w=400&auto=format&fit=crop" },
+      { name: "Veg Fried Rice", desc: "Vegetable fried rice with soy sauce", price: 160, category: "lunch", image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=400&auto=format&fit=crop" },
+      { name: "Egg Fried Rice", desc: "Egg fried rice with vegetables", price: 180, category: "lunch", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chicken Fried Rice", desc: "Chicken fried rice with vegetables", price: 220, category: "lunch", image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=400&auto=format&fit=crop" },
+      { name: "Porotta + Chicken Curry", desc: "Malabar porotta with chicken curry", price: 150, category: "lunch", image: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?q=80&w=400&auto=format&fit=crop" },
+      { name: "Porotta + Beef Curry", desc: "Malabar porotta with beef curry", price: 170, category: "lunch", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop" },
+
+      // Dinner Items
+      { name: "Malabar Chicken Biriyani", desc: "Special Malabar style chicken biriyani", price: 380, category: "dinner", image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=400&auto=format&fit=crop" },
+      { name: "Mutton Biriyani", desc: "Special Malabar style mutton biriyani", price: 450, category: "dinner", image: "https://images.unsplash.com/photo-1563379091339-03017a5067bb?q=80&w=400&auto=format&fit=crop" },
+      { name: "Fish Biriyani", desc: "Special Malabar style fish biriyani", price: 420, category: "dinner", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400&auto=format&fit=crop" },
+      { name: "Prawn Biriyani", desc: "Special Malabar style prawn biriyani", price: 400, category: "dinner", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chicken Steak", desc: "Grilled chicken steak with sides", price: 320, category: "dinner", image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=400&auto=format&fit=crop" },
+      { name: "Mutton Chops", desc: "Special mutton chops with spices", price: 380, category: "dinner", image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" },
+      { name: "Fish Grill", desc: "Char-grilled fish with lemon butter", price: 420, category: "dinner", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400&auto=format&fit=crop" },
+      { name: "Prawn Masala", desc: "Kerala style prawn masala", price: 300, category: "dinner", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chicken 65", desc: "Spicy deep-fried chicken", price: 220, category: "dinner", image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=400&auto=format&fit=crop" },
+      { name: "Kebab Platter", desc: "Assorted kebab selection with sides", price: 450, category: "dinner", image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" },
+      { name: "Butter Chicken", desc: "Creamy butter chicken with naan", price: 350, category: "dinner", image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=400&auto=format&fit=crop" },
+      { name: "Paneer Butter Masala", desc: "Cottage cheese in creamy tomato gravy", price: 280, category: "dinner", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" },
+      { name: "Veg Thali", desc: "Special dinner veg thali", price: 200, category: "dinner", image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=400&auto=format&fit=crop" },
+      { name: "Kerala Sadhya", desc: "Traditional Kerala feast on banana leaf", price: 300, category: "dinner", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop" },
+      { name: "Chappathi + Beef Stew", desc: "Soft chappathi with beef stew", price: 180, category: "dinner", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop" }
+    ];
+
+    let currentMenuCategory = 'all';
+
+    function filterMenuItems(category) {
+      currentMenuCategory = category;
+      renderMenuItems();
+    }
+
+    function renderMenuItems() {
+      const container = document.getElementById('menuItemsList');
+      if (container) {
+        let filteredItems;
+        
+        if (currentMenuCategory === 'all') {
+          filteredItems = allMenuItems;
+        } else {
+          filteredItems = allMenuItems.filter(item => item.category === currentMenuCategory);
+        }
+        
+        container.innerHTML = filteredItems.map((item, index) => `
+          <div class="menu-item-card" style="animation-delay: ${index * 0.05}s">
+            <img src="${item.image}" alt="${item.name}" class="menu-item-image">
+            <div class="menu-item-content">
+              <div class="menu-item-category">
+                <i class="fas fa-${item.category === 'breakfast' ? 'bread-slice' : item.category === 'lunch' ? 'bowl-rice' : 'drumstick-bite'}"></i>
+                ${item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+              </div>
+              <div class="menu-item-header">
+                <span class="menu-item-name">${item.name}</span>
+                <span class="menu-item-price">₹${item.price}</span>
+              </div>
+              <p class="menu-item-desc">${item.desc}</p>
+              <button class="btn menu-item-btn" onclick="addToCart('${item.name}',${item.price}); showPage('orderPage');">
+                <i class="fas fa-cart-plus"></i> Order Now
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Dish data (signature items)
+    const dishes = [
+      { name: "Malabar Chicken", desc: "Rich curry, coconut", price: 380, cat: "Main Course", img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=400" },
+      { name: "Nibras Biriyani", desc: "Signature rice, saffron", price: 350, cat: "Rice", img: "https://images.unsplash.com/photo-1563379091339-03017a5067bb?q=80&w=400" },
+      { name: "Paneer Tikka", desc: "Char-grilled, mint", price: 250, cat: "Starters", img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=400" },
+      { name: "Special Kebab", desc: "Chef's signature, exotic spices", price: 450, cat: "Special", img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=400" },
+      { name: "Fish Grill", desc: "Karimeen, lemon butter", price: 420, cat: "Grills", img: "https://images.unsplash.com/photo-1625943553852-781c6e46b0c0?q=80&w=400" },
+      { name: "Gulab Jamun", desc: "Warm, rose syrup", price: 120, cat: "Desserts", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400" },
+      { name: "Mango Lassi", desc: "Thick yogurt shake", price: 90, cat: "Beverages", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=400" }
+    ];
+
+    function renderDishes(filter = 'All') {
+      const grid = document.getElementById('dishGrid');
+      if (grid) {
+        grid.innerHTML = '';
+        dishes.filter(d => filter === 'All' || d.cat === filter).forEach(d => {
+          grid.innerHTML += `<div class="dish-card"><img src="${d.img}" alt="${d.name}"><div class="dish-body"><div class="dish-name"><span>${d.name}</span><span class="dish-price">₹${d.price}</span></div><p class="dish-desc">${d.desc}</p><button class="order-btn" onclick="addToCart('${d.name}',${d.price}); showPage('orderPage');">Order Now</button></div></div>`;
+        });
+      }
+    }
+    renderDishes();
+
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      const filter = e.target.getAttribute('data-filter');
+      renderDishes(filter);
+    }));
+
+    // Cart logic
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      renderOrderPage();
+    }
+
+    function renderCartPage() {
+      const container = document.getElementById('cartItemsPage');
+      if (container) {
+        let total = 0;
+        container.innerHTML = cart.map((c, i) => {
+          total += c.price;
+          return `<div class="cart-row"><span>${c.name} · ₹${c.price}</span><button onclick="removeItem(${i})" style="background:none;color:red;border:none;cursor:pointer;">✕</button></div>`;
+        }).join('');
+        document.getElementById('cartTotalPage').innerText = total;
+      }
+    }
+
+    function renderOrderPage() {
+      const container = document.getElementById('orderItemsList');
+      if (container) {
+        if (cart.length === 0) {
+          container.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--text-muted);">
+            <i class="fas fa-shopping-basket" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>No items ordered yet. Please add items to your cart.</p>
+          </div>`;
+          return;
+        }
+        
+        let total = 0;
+        container.innerHTML = cart.map((c, i) => {
+          total += c.price;
+          return `<div class="order-item-row">
+            <div>
+              <strong>${c.name}</strong><br>
+              <small style="color: var(--text-muted);">₹${c.price}</small>
+            </div>
+            <div class="order-qty-control">
+              <span style="margin-right: 10px; color: var(--gold);">₹${c.price}</span>
+              <button class="qty-btn" onclick="removeItem(${i}); renderOrderPage();">✕</button>
+            </div>
+          </div>`;
+        }).join('');
+        
+        container.innerHTML += `<div style="text-align: right; padding: 1rem; font-size: 1.3rem; color: var(--gold); font-weight: bold;">
+          Total: ₹${total}
+        </div>`;
+      }
+    }
+
+    window.removeItem = (i) => { 
+      cart.splice(i, 1); 
+      renderCartPage(); 
+      renderOrderPage();
+    };
+
+    document.getElementById('orderWhatsappPage').addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = cart.map(i => i.name + " - ₹" + i.price).join('\n');
+      const total = cart.reduce((s,i) => s+i.price, 0);
+      const msg = encodeURIComponent(`Order from NIBRAS:\n${text}\nTotal: ₹${total}\nPickup/Delivery`);
+      window.open(`https://wa.me/919999999999?text=${msg}`, '_blank');
+    });
+
+    // Initialize
+    renderCartPage();
+    renderOrderPage();
+    renderMenuItems();
+  </script>
+</body>
+</html>
