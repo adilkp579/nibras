@@ -21,15 +21,12 @@
     body {
       overflow: hidden;
     }
-    /* For Webkit browsers (Chrome, Safari) */
     ::-webkit-scrollbar {
       display: none;
     }
-    /* For Firefox */
     html {
       scrollbar-width: none;
     }
-    /* For IE/Edge */
     body {
       -ms-overflow-style: none;
     }
@@ -59,7 +56,7 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       scroll-behavior: smooth;
-      overflow-y: scroll; /* still allow scrolling but hide scrollbar */
+      overflow-y: scroll;
     }
 
     h1, h2, h3, .brand-font {
@@ -79,7 +76,7 @@
       padding: 0 24px;
     }
 
-    /* ========== GLASSMORPHISM NAVBAR (90% transparency, one side curved) ========== */
+    /* ========== GLASSMORPHISM NAVBAR ========== */
     .navbar {
       position: fixed;
       top: 20px;
@@ -198,7 +195,7 @@
       border-color: var(--gold);
     }
 
-    /* ========== PREMIUM MOBILE TOP HEADER (GLASS 90%, one side curved) ========== */
+    /* ========== PREMIUM MOBILE TOP HEADER ========== */
     .mobile-top-header {
       display: none;
       position: fixed;
@@ -294,7 +291,7 @@
       transform: scale(1.1);
     }
 
-    /* ========== MOBILE DROPDOWN MENU (GLASS 90%) ========== */
+    /* ========== MOBILE DROPDOWN MENU ========== */
     .mobile-dropdown {
       display: none;
       position: fixed;
@@ -617,7 +614,7 @@
       margin-bottom: 2rem;
     }
 
-    /* ========== FEATURED PRODUCTS (BELOW HERO) ========== */
+    /* ========== FEATURED PRODUCTS ========== */
     .featured-products-section {
       padding: 3rem 0 2rem;
       background: var(--bg-charcoal);
@@ -754,7 +751,7 @@
       color: var(--text-light);
     }
 
-    /* ========== MODERN ROUND OFF-WHITE ACTION BUTTONS (GLASS 90%) ========== */
+    /* ========== ACTION BUTTONS ========== */
     .navbar-action-buttons {
       display: flex;
       justify-content: center;
@@ -788,32 +785,7 @@
       overflow: hidden;
     }
 
-    .navbar-action-btn.view-menu {
-      background: rgba(255, 250, 245, 0.10);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      color: var(--text-light);
-    }
-
-    .navbar-action-btn.reserve-table {
-      background: rgba(255, 250, 245, 0.10);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      color: var(--text-light);
-    }
-
-    .navbar-action-btn.view-menu::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-
-    .navbar-action-btn.reserve-table::after {
+    .navbar-action-btn::after {
       content: '';
       position: absolute;
       top: 0;
@@ -845,7 +817,7 @@
       transform: scale(1.15) rotate(5deg);
     }
 
-    /* ========== CHEF SECTION (ABOVE GALLERY) ========== */
+    /* ========== CHEF SECTION ========== */
     .chefs-section {
       padding: 5rem 0;
       background: var(--bg-charcoal);
@@ -948,7 +920,7 @@
       font-size: 0.8rem;
     }
 
-    /* ========== MENU ITEMS PAGE ========== */
+    /* ========== MENU ITEMS PAGE - 2 COLUMNS MOBILE, 4 DESKTOP ========== */
     .menu-items-page {
       padding-top: 100px;
       padding-bottom: 80px;
@@ -974,7 +946,7 @@
       margin-bottom: 2rem;
     }
 
-    /* ========== SMOOTH ANIMATED CATEGORY NAVBAR (GLASS 90%) ========== */
+    /* Category Navbar */
     .category-navbar {
       display: flex;
       justify-content: center;
@@ -1049,16 +1021,24 @@
       }
     }
 
-    /* Menu Items Grid */
+    /* ===== MENU ITEMS GRID: 2 cols mobile, 4 cols desktop ===== */
     .menu-items-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);   /* 4 columns desktop */
       gap: 2rem;
       margin-top: 2rem;
-      max-width: 1200px;
+      max-width: 1300px;
       margin-left: auto;
       margin-right: auto;
       padding: 0 24px;
+    }
+
+    @media (max-width: 900px) {
+      .menu-items-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns mobile */
+        gap: 1rem;
+        padding: 0 14px;
+      }
     }
 
     .menu-item-card {
@@ -1098,6 +1078,12 @@
       transition: transform 0.4s;
     }
 
+    @media (max-width: 900px) {
+      .menu-item-image {
+        height: 140px;
+      }
+    }
+
     .menu-item-card:hover .menu-item-image {
       transform: scale(1.08);
     }
@@ -1109,11 +1095,19 @@
       flex: 1;
     }
 
+    @media (max-width: 900px) {
+      .menu-item-content {
+        padding: 0.9rem;
+      }
+    }
+
     .menu-item-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 4px;
     }
 
     .menu-item-name {
@@ -1122,10 +1116,22 @@
       color: var(--text-light);
     }
 
+    @media (max-width: 900px) {
+      .menu-item-name {
+        font-size: 0.95rem;
+      }
+    }
+
     .menu-item-price {
       color: var(--gold-dark);
       font-weight: 700;
       font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .menu-item-price {
+        font-size: 0.95rem;
+      }
     }
 
     .menu-item-desc {
@@ -1134,6 +1140,13 @@
       margin-bottom: 1rem;
       line-height: 1.5;
       flex: 1;
+    }
+
+    @media (max-width: 900px) {
+      .menu-item-desc {
+        font-size: 0.75rem;
+        margin-bottom: 0.7rem;
+      }
     }
 
     .menu-item-category {
@@ -1150,6 +1163,14 @@
       align-self: flex-start;
     }
 
+    @media (max-width: 900px) {
+      .menu-item-category {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
     .menu-item-category i {
       font-size: 0.7rem;
     }
@@ -1159,6 +1180,13 @@
       padding: 0.6rem;
       font-size: 0.85rem;
       margin-top: auto;
+    }
+
+    @media (max-width: 900px) {
+      .menu-item-btn {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
     }
 
     /* ========== GALLERY ========== */
@@ -1291,7 +1319,7 @@
       color: #fff;
     }
 
-    /* ========== FILTER GROUP (GLASS 90%) ========== */
+    /* ========== FILTER GROUP ========== */
     .filter-wrapper {
       position: relative;
       max-width: 800px;
@@ -1398,7 +1426,7 @@
       color: var(--gold);
     }
 
-    /* ========== IMPROVED CONTACT SECTION ========== */
+    /* ========== CONTACT SECTION ========== */
     .contact-section {
       background: linear-gradient(180deg, rgba(248,245,240,0.80), rgba(240,236,230,0.85));
       border-top: 1px solid var(--border-gold);
@@ -1847,11 +1875,6 @@
         font-size: 0.8rem;
         min-width: 85px;
       }
-
-      .menu-items-list {
-        grid-template-columns: 1fr;
-        padding: 0 16px;
-      }
     }
 
     .bottom-nav {
@@ -1865,7 +1888,7 @@
 </head>
 <body>
 
-  <!-- ========== PREMIUM DESKTOP NAVBAR (one side curved) ========== -->
+  <!-- ========== PREMIUM DESKTOP NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container navbar-inner">
       <div class="logo">NIBRAS</div>
@@ -1882,7 +1905,7 @@
     </div>
   </nav>
 
-  <!-- ========== PREMIUM MOBILE TOP HEADER (one side curved) ========== -->
+  <!-- ========== PREMIUM MOBILE TOP HEADER ========== -->
   <div class="mobile-top-header">
     <div class="mh-left">
       <a href="#" onclick="showPage('cartPage'); return false;">
@@ -2290,7 +2313,7 @@
   <!-- floating whatsapp -->
   <a href="https://wa.me/919999999999" class="whats-float"><i class="fab fa-whatsapp"></i></a>
 
-  <!-- ========== RESERVATION MODAL (ONLY OPENS ON BUTTON CLICK) ========== -->
+  <!-- ========== RESERVATION MODAL ========== -->
   <div class="modal-overlay" id="reservationModal">
     <div class="modal-box">
       <button class="modal-close" onclick="closeReservationModal()">&times;</button>
@@ -2413,7 +2436,7 @@
       button.classList.add('active');
     }
 
-    // ===== RESERVATION MODAL FUNCTIONS (ONLY OPENS ON BUTTON CLICK) =====
+    // ===== RESERVATION MODAL FUNCTIONS =====
     function openReservationModal() {
       document.getElementById('reservationModal').classList.add('active');
       document.getElementById('resName').value = '';
