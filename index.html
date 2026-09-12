@@ -43,7 +43,7 @@
       --text-light: #2c2a28;
       --text-muted: #6b6359;
       --shadow-gold: 0 15px 35px rgba(180, 150, 110, 0.10);
-      --glass: rgba(255, 250, 245, 0.10);
+      --glass: rgba(255, 250, 245, 0.02);
       --border-gold: rgba(200, 170, 130, 0.15);
       --success: #4CAF50;
       --whatsapp: #25D366;
@@ -76,7 +76,7 @@
       padding: 0 24px;
     }
 
-    /* ========== GLASSMORPHISM NAVBAR ========== */
+    /* ========== GLASSMORPHISM NAVBAR (100% transparency) ========== */
     .navbar {
       position: fixed;
       top: 20px;
@@ -86,23 +86,25 @@
       z-index: 1000;
       padding: 0.8rem 2rem 0.8rem 2.5rem;
       transition: all 0.4s ease;
-      background: rgba(255, 250, 245, 0.10);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border: 1px solid rgba(200, 170, 130, 0.10);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+      background: rgba(255, 250, 245, 0.02);
+      backdrop-filter: blur(22px) saturate(200%);
+      -webkit-backdrop-filter: blur(22px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.35);
       border-radius: 0 60px 60px 0;
       display: block;
       margin-left: 0;
     }
 
     .navbar.scrolled {
-      background: rgba(255, 250, 245, 0.12);
-      backdrop-filter: blur(22px) saturate(180%);
-      -webkit-backdrop-filter: blur(22px) saturate(180%);
-      border: 1px solid rgba(200, 170, 130, 0.15);
+      background: rgba(255, 250, 245, 0.03);
+      backdrop-filter: blur(26px) saturate(200%);
+      -webkit-backdrop-filter: blur(26px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.20);
       padding: 0.5rem 2rem 0.5rem 2.5rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.35);
       border-radius: 0 60px 60px 0;
       top: 12px;
     }
@@ -172,30 +174,32 @@
     }
 
     .nav-links .btn {
-      background: rgba(200, 170, 130, 0.20);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(200, 170, 130, 0.15);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       color: var(--text-light);
       padding: 0.6rem 1.6rem;
       border-radius: 50px;
       font-weight: 700;
-      border: 1px solid rgba(200, 170, 130, 0.20);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       cursor: pointer;
       transition: all 0.3s;
-      box-shadow: 0 6px 20px rgba(180, 150, 110, 0.08);
+      box-shadow: 0 6px 20px rgba(180, 150, 110, 0.08),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.35);
       font-size: 0.9rem;
       letter-spacing: 0.5px;
     }
 
     .nav-links .btn:hover {
-      background: rgba(200, 170, 130, 0.35);
+      background: rgba(200, 170, 130, 0.30);
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(180, 150, 110, 0.15);
+      box-shadow: 0 10px 28px rgba(180, 150, 110, 0.15),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.45);
       color: var(--text-light);
       border-color: var(--gold);
     }
 
-    /* ========== PREMIUM MOBILE TOP HEADER ========== */
+    /* ========== PREMIUM MOBILE TOP HEADER (100% transparency) ========== */
     .mobile-top-header {
       display: none;
       position: fixed;
@@ -203,11 +207,12 @@
       left: 0;
       width: 94%;
       z-index: 1002;
-      background: rgba(255, 250, 245, 0.10);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(200, 170, 130, 0.10);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+      background: rgba(255, 250, 245, 0.02);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.35);
       border-radius: 0 60px 60px 0;
       align-items: center;
       justify-content: space-between;
@@ -291,19 +296,20 @@
       transform: scale(1.1);
     }
 
-    /* ========== MOBILE DROPDOWN MENU ========== */
+    /* ========== MOBILE DROPDOWN MENU (100% transparency) ========== */
     .mobile-dropdown {
       display: none;
       position: fixed;
       top: 76px;
       right: 20px;
       width: 280px;
-      background: rgba(255, 252, 248, 0.12);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border: 1px solid rgba(200, 170, 130, 0.10);
+      background: rgba(255, 252, 248, 0.03);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.35);
       z-index: 1003;
       overflow: hidden;
       animation: slideDown 0.3s ease;
@@ -332,7 +338,7 @@
       color: var(--text-light);
       font-size: 0.95rem;
       font-weight: 500;
-      border-bottom: 1px solid rgba(200, 170, 130, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.2s;
       cursor: pointer;
     }
@@ -360,8 +366,8 @@
       font-size: 1.2rem;
       color: var(--text-light);
       letter-spacing: 3px;
-      border-bottom: 1px solid rgba(200, 170, 130, 0.06);
-      background: rgba(200, 170, 130, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     /* ========== BUTTONS ========== */
@@ -654,6 +660,8 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.02);
       position: relative;
       min-width: 280px;
+      display: flex;
+      flex-direction: column;
     }
 
     .featured-product-card:hover {
@@ -698,6 +706,9 @@
 
     .featured-product-body {
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .featured-product-title {
@@ -713,12 +724,14 @@
       font-size: 0.9rem;
       margin-bottom: 1rem;
       line-height: 1.6;
+      flex: 1;
     }
 
     .featured-product-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       margin-top: 0.5rem;
     }
 
@@ -726,6 +739,13 @@
       color: var(--gold-dark);
       font-weight: 700;
       font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .featured-product-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .featured-product-btn {
@@ -734,10 +754,10 @@
       -webkit-backdrop-filter: blur(4px);
       color: var(--text-light);
       border: 1px solid rgba(200, 170, 130, 0.15);
-      padding: 0.5rem 1.2rem;
+      padding: 0.5rem 1.1rem;
       border-radius: 30px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
       transition: all 0.25s;
       display: inline-flex;
@@ -749,6 +769,38 @@
       background: rgba(200, 170, 130, 0.35);
       transform: scale(1.05);
       color: var(--text-light);
+    }
+
+    .featured-product-cart-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-dark));
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 18px rgba(180, 150, 110, 0.30);
+      flex-shrink: 0;
+    }
+
+    .featured-product-cart-icon:hover {
+      transform: scale(1.12) rotate(-5deg);
+      box-shadow: 0 10px 25px rgba(180, 150, 110, 0.45);
+      background: linear-gradient(135deg, #e6d4b8, var(--gold-soft), var(--gold));
+    }
+
+    .featured-product-cart-icon:active {
+      transform: scale(0.95);
+    }
+
+    .featured-product-cart-icon i {
+      font-size: 0.9rem;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     }
 
     /* ========== ACTION BUTTONS ========== */
@@ -920,7 +972,7 @@
       font-size: 0.8rem;
     }
 
-    /* ========== MENU ITEMS PAGE - 2 COLUMNS MOBILE, 4 DESKTOP ========== */
+    /* ========== MENU ITEMS PAGE ========== */
     .menu-items-page {
       padding-top: 100px;
       padding-bottom: 80px;
@@ -986,7 +1038,6 @@
 
     .category-tab:hover {
       color: var(--gold-dark);
-      background: rgba(200, 170, 130, 0.04);
     }
 
     .category-tab.active {
@@ -1021,10 +1072,10 @@
       }
     }
 
-    /* ===== MENU ITEMS GRID: 2 cols mobile, 4 cols desktop ===== */
+    /* ===== MENU ITEMS GRID: 1 column mobile, 4 columns desktop ===== */
     .menu-items-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);   /* 4 columns desktop */
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin-top: 2rem;
       max-width: 1300px;
@@ -1035,9 +1086,9 @@
 
     @media (max-width: 900px) {
       .menu-items-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns mobile */
-        gap: 1rem;
-        padding: 0 14px;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 0 16px;
       }
     }
 
@@ -1051,6 +1102,7 @@
       flex-direction: column;
       opacity: 0;
       animation: cardFadeIn 0.5s forwards;
+      position: relative;
     }
 
     .menu-item-card:hover {
@@ -1080,7 +1132,7 @@
 
     @media (max-width: 900px) {
       .menu-item-image {
-        height: 140px;
+        height: 200px;
       }
     }
 
@@ -1097,7 +1149,7 @@
 
     @media (max-width: 900px) {
       .menu-item-content {
-        padding: 0.9rem;
+        padding: 1rem;
       }
     }
 
@@ -1118,7 +1170,7 @@
 
     @media (max-width: 900px) {
       .menu-item-name {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
     }
 
@@ -1130,7 +1182,7 @@
 
     @media (max-width: 900px) {
       .menu-item-price {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
     }
 
@@ -1144,8 +1196,8 @@
 
     @media (max-width: 900px) {
       .menu-item-desc {
-        font-size: 0.75rem;
-        margin-bottom: 0.7rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
       }
     }
 
@@ -1165,9 +1217,9 @@
 
     @media (max-width: 900px) {
       .menu-item-category {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.6rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.7rem;
+        margin-bottom: 0.6rem;
       }
     }
 
@@ -1175,17 +1227,98 @@
       font-size: 0.7rem;
     }
 
-    .menu-item-btn {
-      width: 100%;
-      padding: 0.6rem;
-      font-size: 0.85rem;
+    .menu-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       margin-top: auto;
+      padding-top: 0.6rem;
+    }
+
+    .menu-item-order-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.6rem 1rem;
+      background: rgba(200, 170, 130, 0.20);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 50px;
+      border: 1px solid rgba(200, 170, 130, 0.15);
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 12px rgba(180, 150, 110, 0.06);
+      letter-spacing: 0.3px;
+    }
+
+    .menu-item-order-btn:hover {
+      background: rgba(200, 170, 130, 0.35);
+      transform: translateY(-2px);
+      color: var(--text-light);
+      box-shadow: 0 6px 18px rgba(180, 150, 110, 0.12);
+    }
+
+    .menu-item-order-btn:active {
+      transform: translateY(0);
+    }
+
+    .menu-item-order-btn i {
+      font-size: 0.85rem;
+    }
+
+    .menu-item-cart-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-dark));
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 18px rgba(180, 150, 110, 0.30);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .menu-item-cart-icon:hover {
+      transform: scale(1.12) rotate(-5deg);
+      box-shadow: 0 10px 25px rgba(180, 150, 110, 0.45);
+      background: linear-gradient(135deg, #e6d4b8, var(--gold-soft), var(--gold));
+    }
+
+    .menu-item-cart-icon:active {
+      transform: scale(0.95);
+    }
+
+    .menu-item-cart-icon i {
+      font-size: 1rem;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     }
 
     @media (max-width: 900px) {
-      .menu-item-btn {
-        padding: 0.5rem;
-        font-size: 0.75rem;
+      .menu-item-order-btn {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.8rem;
+      }
+      .menu-item-order-btn i {
+        font-size: 0.8rem;
+      }
+      .menu-item-cart-icon {
+        width: 38px;
+        height: 38px;
+      }
+      .menu-item-cart-icon i {
+        font-size: 0.95rem;
       }
     }
 
@@ -1319,67 +1452,117 @@
       color: #fff;
     }
 
-    /* ========== FILTER GROUP ========== */
+    /* ========== INTERACTIVE SCROLL SNAP PICKER ========== */
     .filter-wrapper {
       position: relative;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 2.5rem;
-      overflow: hidden;
+      padding: 0 16px;
+    }
+
+    /* Fade edges for the scroll picker */
+    .filter-wrapper::before,
+    .filter-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      pointer-events: none;
+      z-index: 5;
       border-radius: 60px;
     }
 
+    .filter-wrapper::before {
+      left: 16px;
+      background: linear-gradient(90deg, var(--bg-deep) 10%, transparent);
+    }
+
+    .filter-wrapper::after {
+      right: 16px;
+      background: linear-gradient(270deg, var(--bg-deep) 10%, transparent);
+    }
+
     .filter-group {
+      position: relative;
       display: flex;
-      justify-content: flex-start;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0;
       overflow-x: auto;
-      padding: 0.7rem 1.5rem;
-      background: rgba(255, 250, 245, 0.10);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      border: 1px solid rgba(200, 170, 130, 0.08);
+      padding: 0.45rem;
+      background: rgba(255, 250, 245, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(200, 170, 130, 0.18);
       border-radius: 60px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.01);
-      scroll-behavior: smooth;
-      scroll-snap-type: x proximity;
+      box-shadow: 0 8px 32px rgba(180, 150, 110, 0.06),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0 50%;
+      cursor: grab;
+    }
+
+    .filter-group:active {
+      cursor: grabbing;
     }
 
     .filter-group::-webkit-scrollbar {
       display: none;
     }
 
+    /* The sliding pill indicator */
+    .filter-pill-indicator {
+      position: absolute;
+      top: 0.45rem;
+      bottom: 0.45rem;
+      left: 0.45rem;
+      background: linear-gradient(135deg, #dac29c, #c9a87c, #b38b5e);
+      border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(180, 150, 110, 0.35),
+                  0 1px 3px rgba(180, 150, 110, 0.20),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: transform 0.5s cubic-bezier(0.34, 1.3, 0.64, 1),
+                  width 0.5s cubic-bezier(0.34, 1.3, 0.64, 1);
+      z-index: 1;
+      pointer-events: none;
+      will-change: transform, width;
+    }
+
     .filter-btn {
-      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      flex: 0 0 auto;
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 0.6rem 1.2rem;
-      border-radius: 40px;
+      padding: 0.7rem 1.1rem;
+      border-radius: 50px;
       cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.25s;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.35s ease;
       white-space: nowrap;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      min-width: 85px;
       scroll-snap-align: center;
     }
 
     .filter-btn:hover {
       color: var(--gold-dark);
-      background: rgba(200, 170, 130, 0.04);
     }
 
     .filter-btn.active {
-      background: var(--gold);
       color: #fff;
-      font-weight: 600;
-      box-shadow: 0 3px 10px rgba(180, 150, 110, 0.10);
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.08);
     }
 
     /* why cards */
@@ -1812,12 +1995,37 @@
 
       .filter-wrapper {
         max-width: 100%;
+        padding: 0 8px;
         margin-bottom: 2rem;
+      }
+
+      .filter-wrapper::before,
+      .filter-wrapper::after {
+        width: 24px;
+      }
+
+      .filter-wrapper::before {
+        left: 8px;
+      }
+
+      .filter-wrapper::after {
+        right: 8px;
+      }
+      
+      .filter-group {
+        padding: 0.4rem;
+      }
+      
+      .filter-pill-indicator {
+        top: 0.4rem;
+        bottom: 0.4rem;
+        left: 0.4rem;
       }
       
       .filter-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.65rem 1rem;
+        font-size: 0.82rem;
+        min-width: 78px;
       }
 
       .contact-container {
@@ -1888,7 +2096,7 @@
 </head>
 <body>
 
-  <!-- ========== PREMIUM DESKTOP NAVBAR ========== -->
+  <!-- ========== PREMIUM DESKTOP NAVBAR (100% transparency glass) ========== -->
   <nav class="navbar" id="navbar">
     <div class="container navbar-inner">
       <div class="logo">NIBRAS</div>
@@ -1905,7 +2113,7 @@
     </div>
   </nav>
 
-  <!-- ========== PREMIUM MOBILE TOP HEADER ========== -->
+  <!-- ========== PREMIUM MOBILE TOP HEADER (100% transparency glass) ========== -->
   <div class="mobile-top-header">
     <div class="mh-left">
       <a href="#" onclick="showPage('cartPage'); return false;">
@@ -1977,9 +2185,14 @@
             <p class="featured-product-desc">Kerala's traditional Malabar manthi with aromatic ghee rice, tender chicken, and soulful spices.</p>
             <div class="featured-product-footer">
               <span class="featured-product-price">₹320</span>
-              <button class="featured-product-btn" onclick="addToCart('Chicken Manthi',320); showPage('orderPage');">
-                <i class="fas fa-cart-plus"></i> Order
-              </button>
+              <div class="featured-product-actions">
+                <button class="featured-product-btn" onclick="addToCart('Chicken Manthi',320); showPage('orderPage');">
+                  <i class="fas fa-bolt"></i> Order
+                </button>
+                <button class="featured-product-cart-icon" onclick="addToCart('Chicken Manthi',320); showPage('orderPage');" title="Add to Cart">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1995,9 +2208,14 @@
             <p class="featured-product-desc">Our legendary biriyani with saffron rice, succulent meat, and secret Nibras spice blend.</p>
             <div class="featured-product-footer">
               <span class="featured-product-price">₹350</span>
-              <button class="featured-product-btn" onclick="addToCart('Nibras Special Biriyani',350); showPage('orderPage');">
-                <i class="fas fa-cart-plus"></i> Order
-              </button>
+              <div class="featured-product-actions">
+                <button class="featured-product-btn" onclick="addToCart('Nibras Special Biriyani',350); showPage('orderPage');">
+                  <i class="fas fa-bolt"></i> Order
+                </button>
+                <button class="featured-product-cart-icon" onclick="addToCart('Nibras Special Biriyani',350); showPage('orderPage');" title="Add to Cart">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -2013,9 +2231,14 @@
             <p class="featured-product-desc">A grand feast served on banana leaf with 20+ traditional Kerala dishes and payasam.</p>
             <div class="featured-product-footer">
               <span class="featured-product-price">₹300</span>
-              <button class="featured-product-btn" onclick="addToCart('Kerala Sadya',300); showPage('orderPage');">
-                <i class="fas fa-cart-plus"></i> Order
-              </button>
+              <div class="featured-product-actions">
+                <button class="featured-product-btn" onclick="addToCart('Kerala Sadya',300); showPage('orderPage');">
+                  <i class="fas fa-bolt"></i> Order
+                </button>
+                <button class="featured-product-cart-icon" onclick="addToCart('Kerala Sadya',300); showPage('orderPage');" title="Add to Cart">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -2050,12 +2273,14 @@
       <div class="container">
         <h2 class="section-title">Our Signature Items</h2>
         
+        <!-- Interactive Scroll Snap Picker -->
         <div class="filter-wrapper">
-          <div class="filter-group">
+          <div class="filter-group" id="filterGroup">
+            <div class="filter-pill-indicator" id="pillIndicator"></div>
+            <button class="filter-btn active" data-filter="All">All</button>
             <button class="filter-btn" data-filter="Starters">Starters</button>
             <button class="filter-btn" data-filter="Main Course">Main Course</button>
             <button class="filter-btn" data-filter="Rice">Rice</button>
-            <button class="filter-btn active" data-filter="All">All</button>
             <button class="filter-btn" data-filter="Special">Special</button>
             <button class="filter-btn" data-filter="Grills">Grills</button>
             <button class="filter-btn" data-filter="Desserts">Desserts</button>
@@ -2436,6 +2661,186 @@
       button.classList.add('active');
     }
 
+    // ===== INTERACTIVE SCROLL SNAP PICKER =====
+    function initScrollSnapPicker() {
+      const filterGroup = document.getElementById('filterGroup');
+      const pillIndicator = document.getElementById('pillIndicator');
+      if (!filterGroup || !pillIndicator) return;
+
+      const buttons = Array.from(filterGroup.querySelectorAll('.filter-btn'));
+      let isProgrammaticScroll = false;
+      let scrollEndTimer = null;
+
+      function updatePill(activeBtn, animate = true) {
+        if (!activeBtn) return;
+        const groupRect = filterGroup.getBoundingClientRect();
+        const btnRect = activeBtn.getBoundingClientRect();
+        const left = btnRect.left - groupRect.left + filterGroup.scrollLeft - 0.45 * 16;
+        const width = btnRect.width;
+
+        if (!animate) {
+          pillIndicator.style.transition = 'none';
+        } else {
+          pillIndicator.style.transition = '';
+        }
+        pillIndicator.style.width = width + 'px';
+        pillIndicator.style.transform = `translateX(${left}px)`;
+
+        if (!animate) {
+          void pillIndicator.offsetWidth;
+          pillIndicator.style.transition = '';
+        }
+      }
+
+      function getActiveBtn() {
+        return filterGroup.querySelector('.filter-btn.active');
+      }
+
+      function setActive(btn, animatePill = true, scroll = false) {
+        if (!btn || btn.classList.contains('active') && !scroll) {
+          if (scroll) {
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+          return;
+        }
+
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePill(btn, animatePill);
+
+        if (scroll) {
+          const btnLeft = btn.offsetLeft;
+          const btnWidth = btn.offsetWidth;
+          const groupWidth = filterGroup.clientWidth;
+          const scrollTarget = btnLeft - (groupWidth / 2) + (btnWidth / 2);
+          isProgrammaticScroll = true;
+          filterGroup.scrollTo({
+            left: scrollTarget,
+            behavior: 'smooth'
+          });
+          setTimeout(() => { isProgrammaticScroll = false; }, 600);
+        }
+
+        const filter = btn.getAttribute('data-filter');
+        renderDishes(filter);
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setActive(btn, true, true);
+        });
+      });
+
+      filterGroup.addEventListener('scroll', () => {
+        if (isProgrammaticScroll) return;
+
+        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+
+        const currentActive = getActiveBtn();
+        if (currentActive) {
+          pillIndicator.style.transition = 'transform 0.1s linear, width 0.1s linear';
+        }
+
+        scrollEndTimer = setTimeout(() => {
+          const groupRect = filterGroup.getBoundingClientRect();
+          const groupCenter = groupRect.left + groupRect.width / 2;
+
+          let closestBtn = null;
+          let closestDistance = Infinity;
+
+          buttons.forEach(btn => {
+            const btnRect = btn.getBoundingClientRect();
+            const btnCenter = btnRect.left + btnRect.width / 2;
+            const distance = Math.abs(btnCenter - groupCenter);
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestBtn = btn;
+            }
+          });
+
+          if (closestBtn && !closestBtn.classList.contains('active')) {
+            pillIndicator.style.transition = '';
+            buttons.forEach(b => b.classList.remove('active'));
+            closestBtn.classList.add('active');
+            updatePill(closestBtn, true);
+
+            const btnLeft = closestBtn.offsetLeft;
+            const btnWidth = closestBtn.offsetWidth;
+            const groupWidth = filterGroup.clientWidth;
+            const scrollTarget = btnLeft - (groupWidth / 2) + (btnWidth / 2);
+            isProgrammaticScroll = true;
+            filterGroup.scrollTo({
+              left: scrollTarget,
+              behavior: 'smooth'
+            });
+            setTimeout(() => { isProgrammaticScroll = false; }, 600);
+
+            const filter = closestBtn.getAttribute('data-filter');
+            renderDishes(filter);
+          } else if (closestBtn) {
+            const btnLeft = closestBtn.offsetLeft;
+            const btnWidth = closestBtn.offsetWidth;
+            const groupWidth = filterGroup.clientWidth;
+            const scrollTarget = btnLeft - (groupWidth / 2) + (btnWidth / 2);
+            if (Math.abs(filterGroup.scrollLeft - scrollTarget) > 5) {
+              isProgrammaticScroll = true;
+              filterGroup.scrollTo({
+                left: scrollTarget,
+                behavior: 'smooth'
+              });
+              setTimeout(() => { isProgrammaticScroll = false; }, 600);
+            }
+          }
+
+          pillIndicator.style.transition = '';
+        }, 120);
+      });
+
+      // Drag to scroll (mouse)
+      let isDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+
+      filterGroup.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - filterGroup.offsetLeft;
+        scrollStart = filterGroup.scrollLeft;
+      });
+
+      filterGroup.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+
+      filterGroup.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+
+      filterGroup.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - filterGroup.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        filterGroup.scrollLeft = scrollStart - walk;
+      });
+
+      const initActive = getActiveBtn();
+      if (initActive) {
+        setTimeout(() => {
+          const btnLeft = initActive.offsetLeft;
+          const btnWidth = initActive.offsetWidth;
+          const groupWidth = filterGroup.clientWidth;
+          const scrollTarget = btnLeft - (groupWidth / 2) + (btnWidth / 2);
+          filterGroup.scrollLeft = Math.max(0, scrollTarget);
+          updatePill(initActive, false);
+        }, 100);
+      }
+
+      window.addEventListener('resize', () => {
+        const currentActive = getActiveBtn();
+        if (currentActive) updatePill(currentActive, false);
+      });
+    }
+
     // ===== RESERVATION MODAL FUNCTIONS =====
     function openReservationModal() {
       document.getElementById('reservationModal').classList.add('active');
@@ -2608,9 +3013,14 @@
                 <span class="menu-item-price">₹${item.price}</span>
               </div>
               <p class="menu-item-desc">${item.desc}</p>
-              <button class="btn menu-item-btn" onclick="addToCart('${item.name}',${item.price}); showPage('orderPage');">
-                <i class="fas fa-cart-plus"></i> Order Now
-              </button>
+              <div class="menu-item-actions">
+                <button class="menu-item-order-btn" onclick="addToCart('${item.name}',${item.price}); showPage('orderPage');">
+                  <i class="fas fa-bolt"></i> Order Now
+                </button>
+                <button class="menu-item-cart-icon" onclick="addToCart('${item.name}',${item.price}); showPage('orderPage');" title="Add to Cart">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
             </div>
           </div>
         `).join('');
@@ -2638,13 +3048,6 @@
       }
     }
     renderDishes();
-
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', (e) => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      const filter = e.target.getAttribute('data-filter');
-      renderDishes(filter);
-    }));
 
     // Cart logic
     let cart = [];
@@ -2715,6 +3118,7 @@
     renderCartPage();
     renderOrderPage();
     renderMenuItems();
+    initScrollSnapPicker();
   </script>
 </body>
 </html>
