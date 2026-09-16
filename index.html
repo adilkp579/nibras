@@ -2073,33 +2073,44 @@
       .nibras-exp-stats { gap: 25px; }
     }
 
+    /* ====== MOBILE LIQUID PICKER — 4 BUTTONS VISIBLE, SCROLLABLE ====== */
     @media (max-width: 900px) {
       .filter-wrapper {
         max-width: 100%;
         padding: 0 10px;
         margin-bottom: 2rem;
       }
+
       .liquid-picker {
         padding: 0.4rem 0.4rem;
         border-radius: 100px;
-        overflow: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
         display: flex;
         align-items: center;
-        justify-content: stretch;
+        justify-content: flex-start;
         gap: 0;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
       }
+      .liquid-picker::-webkit-scrollbar { display: none; }
+
       .filter-pill-indicator {
         top: 0.4rem;
         bottom: 0.4rem;
         left: 0.4rem;
       }
+
+      /* Fixed width for 4 buttons to show at once */
       .filter-btn {
-        flex: 1 1 0;
+        flex: 0 0 22%; 
         padding: 0.5rem 0.2rem;
         font-size: 0.65rem;
-        min-width: 0;
+        min-width: 22%;
         gap: 3px;
       }
+
       .filter-btn .filter-icon { width: 20px; height: 20px; }
       .filter-btn .filter-icon i { font-size: 0.78rem; }
       .filter-btn .filter-label { font-size: 0.58rem; letter-spacing: 0; }
@@ -2162,7 +2173,9 @@
       .filter-wrapper { padding: 0 8px; }
       .liquid-picker { padding: 0.35rem 0.35rem; }
       .filter-pill-indicator { top: 0.35rem; bottom: 0.35rem; left: 0.35rem; }
-      .filter-btn { padding: 0.45rem 0.15rem; gap: 2px; }
+      
+      /* Adjust for smaller screens to still fit 4 buttons */
+      .filter-btn { flex: 0 0 23%; padding: 0.45rem 0.15rem; gap: 2px; }
       .filter-btn .filter-icon { width: 18px; height: 18px; }
       .filter-btn .filter-icon i { font-size: 0.72rem; }
       .filter-btn .filter-label { font-size: 0.55rem; }
@@ -2219,7 +2232,9 @@
       .filter-wrapper { padding: 0 6px; }
       .liquid-picker { padding: 0.3rem 0.3rem; }
       .filter-pill-indicator { top: 0.3rem; bottom: 0.3rem; left: 0.3rem; }
-      .filter-btn { padding: 0.4rem 0.1rem; gap: 2px; }
+      
+      /* Still 4 buttons visible on very small screens */
+      .filter-btn { flex: 0 0 23.5%; padding: 0.4rem 0.1rem; gap: 2px; }
       .filter-btn .filter-icon { width: 16px; height: 16px; }
       .filter-btn .filter-icon i { font-size: 0.65rem; }
       .filter-btn .filter-label { font-size: 0.5rem; letter-spacing: -0.2px; }
@@ -2966,6 +2981,12 @@
         btn.classList.add('active');
 
         movePillTo(btn, true);
+        
+        // Auto-scroll to the active button on mobile
+        if (window.innerWidth <= 900) {
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
         if (onFilterChange) onFilterChange(btn.getAttribute('data-filter'));
       }
 
