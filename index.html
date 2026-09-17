@@ -45,6 +45,7 @@
       --success: #4CAF50;
       --whatsapp: #25D366;
       --error: #cc6b6b;
+      --orange-badge: #e67e22;
     }
 
     h1, h2, h3, .brand-font {
@@ -190,6 +191,75 @@
       border-color: var(--gold);
     }
 
+    /* ====== CUSTOM ICON WRAPPER & BADGE ====== */
+    .icon-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      transition: all 0.3s;
+    }
+
+    .icon-wrapper:hover {
+      color: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .icon-wrapper i {
+      font-size: 1.2rem;
+    }
+
+    /* Cart Badge */
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--orange-badge);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 6px rgba(230, 126, 34, 0.4);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Delivery Icon Styling to mimic the silhouette */
+    .delivery-icon i {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    }
+
+    /* Mobile specific adjustments for icons */
+    .mobile-top-header .icon-wrapper {
+      margin-right: 16px;
+    }
+    .mobile-top-header .icon-wrapper i {
+      font-size: 1.3rem;
+    }
+    .mobile-top-header .cart-badge {
+      top: -6px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      font-size: 0.6rem;
+    }
+
+    /* Desktop specific adjustments for icons */
+    .nav-links .icon-wrapper {
+      margin-right: 1rem;
+    }
+    .nav-links .icon-wrapper:last-child {
+      margin-right: 0;
+    }
+
     /* ====== MOBILE HEADER ====== */
     .mobile-top-header {
       display: none;
@@ -226,16 +296,9 @@
     .mobile-top-header .mh-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 0; /* Adjusted to use icon-wrapper spacing */
       position: relative;
       z-index: 2;
-    }
-
-    .mobile-top-header .mh-left a {
-      display: flex;
-      align-items: center;
-      color: var(--text-light);
-      font-size: 1.1rem;
     }
 
     .mobile-top-header .mh-center {
@@ -683,9 +746,10 @@
       transform: scale(0.97);
     }
 
+    /* ====== BLOB AREA WITH IMAGE BACKGROUND ====== */
     .cs-blob-area {
       position: relative;
-      flex: 0 0 45%;
+      flex: 0 0 48%;
       background: #1a1a1a;
       display: flex;
       align-items: center;
@@ -695,15 +759,41 @@
       transition: background 0.5s;
     }
 
+    /* New style for the image inside the blob area */
+    .cs-blob-area .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform 0.6s ease, opacity 0.5s ease;
+      opacity: 0.9;
+    }
+
+    /* Dark overlay for better text readability */
+    .cs-blob-area::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Keep the blob but make it semi-transparent or remove it */
     .cs-blob {
       position: relative;
-      width: 170px;
-      height: 170px;
+      width: 200px;
+      height: 200px;
       background: radial-gradient(circle at 35% 30%, #4a4a4a 0%, #2a2a2a 30%, #111 65%, #000 100%);
       border-radius: 42% 58% 62% 38% / 45% 40% 60% 55%;
       box-shadow: inset -12px -12px 30px rgba(0,0,0,0.9), inset 10px 10px 25px rgba(90,90,90,0.4), 0 20px 40px rgba(0,0,0,0.6);
       animation: blobMorph 8s ease-in-out infinite;
       transition: background 0.5s;
+      z-index: 3; /* Keep blob on top of image */
+      opacity: 0.3; /* Make it subtle */
+      mix-blend-mode: overlay;
     }
 
     .cs-blob::before {
@@ -1044,7 +1134,7 @@
       flex-shrink: 0;
     }
 
-    /* ====== ACTION BUTTONS ====== */
+    /* ====== NEW ACTION BUTTONS STYLE (Dark Glass) ====== */
     .navbar-action-buttons {
       display: flex;
       justify-content: center;
@@ -1059,21 +1149,29 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 0; /* Icon removed, so no gap needed */
       padding: 0.9rem 2.5rem;
       border-radius: 50px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
-      border: 1px solid rgba(200,170,130,0.10);
-      background: rgba(255,250,245,0.10);
-      color: var(--text-light);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(135deg, #1c1c1e 0%, #2c2c30 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-action-btn:hover {
+      background: linear-gradient(135deg, #2c2c30 0%, #3a3a40 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
     }
 
     /* ====== NEW CHEF CARDS (Image Style) ====== */
     .chefs-section {
       padding: 5rem 0;
-      background: #1a1a1a; /* Dark background to make the glass cards pop */
+      background: #1a1a1a;
     }
 
     .chefs-title {
@@ -1245,7 +1343,7 @@
       margin-bottom: 2rem;
     }
 
-    /* ====== LIQUID PICKER (SEGMENTED CONTROL) ====== */
+    /* ====== LIQUID PICKER (SEGMENTED CONTROL) - TEXT ONLY ====== */
     .filter-wrapper {
       position: relative;
       max-width: 900px;
@@ -1326,18 +1424,17 @@
       z-index: 3;
       flex: 1 1 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 0;
       background: transparent;
       border: none;
       color: rgba(255,255,255,0.55);
-      padding: 0.7rem 0.6rem;
+      padding: 0.75rem 0.6rem;
       border-radius: 100px;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
       transition: color 0.4s ease;
       white-space: nowrap;
@@ -1346,28 +1443,14 @@
       user-select: none;
     }
 
-    .filter-btn .filter-icon {
-      width: 26px;
-      height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: all 0.45s cubic-bezier(0.34, 1.35, 0.64, 1);
-      color: rgba(255,255,255,0.55);
-    }
-
-    .filter-btn .filter-icon i { font-size: 1rem; }
-
     .filter-btn .filter-label {
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.1px;
       transition: color 0.4s ease, text-shadow 0.4s ease;
     }
 
     .filter-btn:hover { color: rgba(255,255,255,0.85); }
-    .filter-btn:hover .filter-icon { color: rgba(255,255,255,0.9); }
     .filter-btn.active { color: #ffffff; }
 
     .filter-btn.active .filter-label {
@@ -1375,27 +1458,6 @@
       font-weight: 700;
       text-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 0 12px rgba(255,255,255,0.25);
     }
-
-    .filter-btn.active .filter-icon {
-      color: #ffffff;
-      background: rgba(255,255,255,0.10);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.3) inset;
-      transform: scale(1.08);
-    }
-
-    .filter-btn.active .filter-icon i { filter: drop-shadow(0 0 6px currentColor); }
-
-    .filter-btn[data-filter="All"].active .filter-icon i { color: #ffffff; }
-    .filter-btn[data-filter="Starters"].active .filter-icon i { color: #7dd3fc; }
-    .filter-btn[data-filter="Main Course"].active .filter-icon i { color: #fbbf24; }
-    .filter-btn[data-filter="Rice"].active .filter-icon i { color: #a78bfa; }
-    .filter-btn[data-filter="Special"].active .filter-icon i { color: #f472b6; }
-    .filter-btn[data-filter="Grills"].active .filter-icon i { color: #f87171; }
-    .filter-btn[data-filter="Desserts"].active .filter-icon i { color: #34d399; }
-    .filter-btn[data-filter="all"].active .filter-icon i { color: #ffffff; }
-    .filter-btn[data-filter="breakfast"].active .filter-icon i { color: #fbbf24; }
-    .filter-btn[data-filter="lunch"].active .filter-icon i { color: #7dd3fc; }
-    .filter-btn[data-filter="dinner"].active .filter-icon i { color: #a78bfa; }
 
     /* ====== MENU GRID ====== */
     .menu-items-list {
@@ -1579,6 +1641,8 @@
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(200,170,130,0.08);
+      display: flex;
+      flex-direction: column;
     }
 
     .dish-card img {
@@ -1587,7 +1651,12 @@
       object-fit: cover;
     }
 
-    .dish-body { padding: 1.2rem; }
+    .dish-body { 
+      padding: 1.2rem; 
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
 
     .dish-name {
       font-size: 1.25rem;
@@ -1605,6 +1674,7 @@
       font-size: 0.9rem;
       color: var(--text-muted);
       margin: 0.5rem 0;
+      flex: 1;
     }
 
     .order-btn {
@@ -1615,6 +1685,49 @@
       color: var(--gold-dark);
       font-size: 0.85rem;
       cursor: pointer;
+    }
+
+    /* ====== Dish Actions with Cart Icon ====== */
+    .dish-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 0.6rem;
+    }
+
+    .dish-actions .order-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(200,170,130,0.20);
+      border: 1px solid rgba(200,170,130,0.15);
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .dish-cart-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-dark));
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(180,150,110,0.30);
+      flex-shrink: 0;
+      font-size: 0.9rem;
     }
 
     /* ====== EXPANDABLE CARD (Why NIBRAS) ====== */
@@ -1969,6 +2082,7 @@
       font-weight: bold;
     }
 
+    /* ====== FOOTER (Updated with Legal Links) ====== */
     footer {
       background: #f0ece6;
       padding: 3rem 0 2rem;
@@ -1977,14 +2091,43 @@
     }
 
     .footer-grid {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 2rem;
       flex-wrap: wrap;
     }
 
     .footer-grid h2 { color: var(--text-light); }
     .footer-grid p, .footer-grid a { color: var(--text-muted); }
+    
+    .footer-col h4 {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-col a {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    
+    .footer-col a:hover {
+      color: var(--gold-dark);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(200,170,130,0.1);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
 
     .whats-float {
       position: fixed;
@@ -2022,8 +2165,10 @@
       .cs-heading { margin-bottom: 36px; font-size: clamp(1.8rem, 6vw, 2.2rem); }
       .cs-carousel { min-height: 460px; }
       .cs-main { flex-direction: column; min-height: auto; max-width: 100%; }
-      .cs-blob-area { flex: 0 0 auto; height: 200px; border-radius: 28px 28px 0 0; }
-      .cs-blob { width: 130px; height: 130px; }
+      /* Increased blob area height on mobile */
+      .cs-blob-area { flex: 0 0 auto; height: 230px; border-radius: 28px 28px 0 0; }
+      /* Increased blob size on mobile */
+      .cs-blob { width: 155px; height: 155px; }
       .cs-content { padding: 28px 22px 24px; }
       .cs-title { font-size: 1.25rem; }
       .cs-stats { gap: 22px; flex-wrap: wrap; }
@@ -2061,8 +2206,8 @@
       .section-title { font-size: 2rem; }
       .chefs-title { font-size: 2rem; }
       .menu-page-title { font-size: 2.2rem; }
-      .menu-items-page { padding-top: 90px; }
-      .cart-page-container { padding-top: 90px; }
+      .menu-items-page { padding-top: 130px; }
+      .cart-page-container { padding-top: 130px; }
 
       /* Nibras Exp Card Responsive */
       .nibras-exp-img { height: 260px; }
@@ -2071,6 +2216,26 @@
       .nibras-exp-btn { padding: 10px 20px; font-size: 0.85rem; }
       .nibras-exp-body { padding: 24px; }
       .nibras-exp-stats { gap: 25px; }
+
+      /* Sticky Back button for Menu, Cart & Order pages on mobile */
+      .menu-items-page .back-btn,
+      .cart-page-container .back-btn {
+        position: sticky;
+        top: 80px;
+        z-index: 999;
+        background: rgba(255, 250, 245, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+      }
+
+      /* Footer responsive */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
     }
 
     /* ====== MOBILE LIQUID PICKER — 4 BUTTONS VISIBLE, SCROLLABLE ====== */
@@ -2105,15 +2270,13 @@
       /* Fixed width for 4 buttons to show at once */
       .filter-btn {
         flex: 0 0 22%; 
-        padding: 0.5rem 0.2rem;
-        font-size: 0.65rem;
+        padding: 0.55rem 0.2rem;
+        font-size: 0.7rem;
         min-width: 22%;
-        gap: 3px;
+        gap: 0;
       }
 
-      .filter-btn .filter-icon { width: 20px; height: 20px; }
-      .filter-btn .filter-icon i { font-size: 0.78rem; }
-      .filter-btn .filter-label { font-size: 0.58rem; letter-spacing: 0; }
+      .filter-btn .filter-label { font-size: 0.7rem; letter-spacing: 0; }
     }
 
     @media (max-width: 600px) {
@@ -2121,8 +2284,8 @@
       .cs-card-wrapper { padding: 32px 18px 32px; }
       .cs-heading { font-size: 1.75rem; margin-bottom: 28px; }
       .cs-label { font-size: 0.62rem; letter-spacing: 2.5px; }
-      .cs-blob-area { height: 180px; }
-      .cs-blob { width: 120px; height: 120px; }
+      .cs-blob-area { height: 200px; }
+      .cs-blob { width: 135px; height: 135px; }
       .cs-content { padding: 24px 18px 20px; }
       .cs-title { font-size: 1.15rem; }
       .cs-desc { font-size: 0.8rem; }
@@ -2135,7 +2298,7 @@
       .cs-readmore { margin-bottom: 20px; }
 
       .navbar-action-buttons { padding: 1.2rem 12px; gap: 0.5rem; }
-      .navbar-action-btn { padding: 0.7rem 0.8rem; font-size: 0.78rem; gap: 6px; }
+      .navbar-action-btn { padding: 0.7rem 0.8rem; font-size: 0.78rem; gap: 0; }
       .navbar-action-btn i { font-size: 0.9rem; }
 
       .featured-product-card { width: 88%; min-width: 88%; }
@@ -2167,7 +2330,6 @@
       .form-submit-btn { grid-column: span 1; }
 
       footer { padding: 2rem 0 1.5rem; }
-      .footer-grid { flex-direction: column; gap: 1.2rem; text-align: center; }
       .whats-float { width: 50px; height: 50px; font-size: 1.8rem; bottom: 70px; right: 16px; }
 
       .filter-wrapper { padding: 0 8px; }
@@ -2175,10 +2337,8 @@
       .filter-pill-indicator { top: 0.35rem; bottom: 0.35rem; left: 0.35rem; }
       
       /* Adjust for smaller screens to still fit 4 buttons */
-      .filter-btn { flex: 0 0 23%; padding: 0.45rem 0.15rem; gap: 2px; }
-      .filter-btn .filter-icon { width: 18px; height: 18px; }
-      .filter-btn .filter-icon i { font-size: 0.72rem; }
-      .filter-btn .filter-label { font-size: 0.55rem; }
+      .filter-btn { flex: 0 0 23%; padding: 0.5rem 0.15rem; gap: 0; }
+      .filter-btn .filter-label { font-size: 0.65rem; }
 
       /* Nibras Exp Card Mobile */
       .nibras-exp-img { height: 220px; }
@@ -2195,8 +2355,8 @@
       .cs-card-wrapper { padding: 26px 14px 26px; border-radius: 24px; }
       .cs-heading { font-size: 1.5rem; margin-bottom: 22px; }
       .cs-label { font-size: 0.55rem; letter-spacing: 2px; gap: 8px; }
-      .cs-blob-area { height: 160px; }
-      .cs-blob { width: 100px; height: 100px; }
+      .cs-blob-area { height: 180px; }
+      .cs-blob { width: 120px; height: 120px; }
       .cs-content { padding: 20px 14px 18px; }
       .cs-title { font-size: 1rem; }
       .cs-desc { font-size: 0.75rem; }
@@ -2206,7 +2366,7 @@
       .cs-explore-btn { padding: 11px 20px; font-size: 0.75rem; }
       .cs-readmore { font-size: 0.75rem; }
 
-      .navbar-action-btn { padding: 0.6rem 0.6rem; font-size: 0.72rem; gap: 5px; }
+      .navbar-action-btn { padding: 0.6rem 0.6rem; font-size: 0.72rem; gap: 0; }
       .navbar-action-btn i { font-size: 0.8rem; }
 
       .section-title { font-size: 1.5rem; }
@@ -2234,10 +2394,8 @@
       .filter-pill-indicator { top: 0.3rem; bottom: 0.3rem; left: 0.3rem; }
       
       /* Still 4 buttons visible on very small screens */
-      .filter-btn { flex: 0 0 23.5%; padding: 0.4rem 0.1rem; gap: 2px; }
-      .filter-btn .filter-icon { width: 16px; height: 16px; }
-      .filter-btn .filter-icon i { font-size: 0.65rem; }
-      .filter-btn .filter-label { font-size: 0.5rem; letter-spacing: -0.2px; }
+      .filter-btn { flex: 0 0 23.5%; padding: 0.45rem 0.1rem; gap: 0; }
+      .filter-btn .filter-label { font-size: 0.6rem; letter-spacing: -0.2px; }
 
       /* Nibras Exp Card Extra Small */
       .nibras-exp-img { height: 180px; }
@@ -2266,8 +2424,18 @@
         <a href="#about" onclick="showPage('homePage'); return false;">About</a>
         <a href="#gallery" onclick="showPage('homePage'); return false;">Gallery</a>
         <a href="#contact" onclick="showPage('homePage'); return false;">Contact</a>
-        <a href="#" onclick="showPage('cartPage'); return false;"><i class="fas fa-shopping-cart"></i> Cart</a>
-        <a href="#" onclick="showPage('orderPage'); return false;"><i class="fas fa-clipboard-list"></i> Order</a>
+        
+        <!-- Updated Cart Icon with Badge -->
+        <a href="#" onclick="showPage('cartPage'); return false;" class="icon-wrapper">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" id="cartBadgeDesktop">0</span>
+        </a>
+        
+        <!-- Updated Order Icon (Delivery Rider) -->
+        <a href="#" onclick="showPage('orderPage'); return false;" class="icon-wrapper delivery-icon">
+          <i class="fas fa-motorcycle"></i>
+        </a>
+        
         <button class="btn" onclick="openReservationModal()">Reserve a Table</button>
       </div>
     </div>
@@ -2276,8 +2444,15 @@
   <!-- MOBILE HEADER -->
   <div class="mobile-top-header">
     <div class="mh-left">
-      <a href="#" onclick="showPage('cartPage'); return false;"><i class="fas fa-shopping-cart"></i></a>
-      <a href="#" onclick="showPage('orderPage'); return false;"><i class="fas fa-clipboard-list"></i></a>
+      <!-- Updated Cart Icon with Badge -->
+      <a href="#" onclick="showPage('cartPage'); return false;" class="icon-wrapper">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadgeMobile">0</span>
+      </a>
+      <!-- Updated Order Icon (Delivery Rider) -->
+      <a href="#" onclick="showPage('orderPage'); return false;" class="icon-wrapper delivery-icon">
+        <i class="fas fa-motorcycle"></i>
+      </a>
     </div>
     <div class="mh-center">NIBRAS</div>
     <div class="mh-right">
@@ -2328,7 +2503,9 @@
           </div>
 
           <div class="cs-main" id="csMain">
-            <div class="cs-blob-area">
+            <!-- Updated Blob area to hold the image -->
+            <div class="cs-blob-area" id="csBlobArea">
+              <img src="hero1.jpg" alt="Hero Image" class="hero-image" id="heroImage">
               <div class="cs-blob"></div>
             </div>
             <div class="cs-content">
@@ -2440,9 +2617,14 @@
       </div>
     </section>
 
+    <!-- UPDATED ACTION BUTTONS -->
     <section class="navbar-action-buttons">
-      <button class="navbar-action-btn view-menu" onclick="showPage('menuItemsPage')"><i class="fas fa-utensils"></i><span>View Full Menu</span></button>
-      <button class="navbar-action-btn reserve-table" onclick="openReservationModal()"><i class="fas fa-calendar-check"></i><span>Reserve Table</span></button>
+      <button class="navbar-action-btn view-menu" onclick="showPage('menuItemsPage')">
+        <span>View Full Menu</span>
+      </button>
+      <button class="navbar-action-btn reserve-table" onclick="openReservationModal()">
+        <span>Reserve Table</span>
+      </button>
     </section>
 
     <section id="about" class="section">
@@ -2466,31 +2648,24 @@
             <div class="filter-pill-indicator" id="pillIndicator"></div>
 
             <button class="filter-btn active" data-filter="All">
-              <span class="filter-icon"><i class="fas fa-border-all"></i></span>
               <span class="filter-label">All</span>
             </button>
             <button class="filter-btn" data-filter="Starters">
-              <span class="filter-icon"><i class="fas fa-pepper-hot"></i></span>
               <span class="filter-label">Starters</span>
             </button>
             <button class="filter-btn" data-filter="Main Course">
-              <span class="filter-icon"><i class="fas fa-drumstick-bite"></i></span>
               <span class="filter-label">Mains</span>
             </button>
             <button class="filter-btn" data-filter="Rice">
-              <span class="filter-icon"><i class="fas fa-bowl-rice"></i></span>
               <span class="filter-label">Rice</span>
             </button>
             <button class="filter-btn" data-filter="Special">
-              <span class="filter-icon"><i class="fas fa-star"></i></span>
               <span class="filter-label">Special</span>
             </button>
             <button class="filter-btn" data-filter="Grills">
-              <span class="filter-icon"><i class="fas fa-fire"></i></span>
               <span class="filter-label">Grills</span>
             </button>
             <button class="filter-btn" data-filter="Desserts">
-              <span class="filter-icon"><i class="fas fa-ice-cream"></i></span>
               <span class="filter-label">Desserts</span>
             </button>
           </div>
@@ -2640,6 +2815,7 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION (Buttons Removed) -->
     <section id="contact" class="contact-section">
       <div class="contact-container">
         <div class="contact-info-card">
@@ -2655,12 +2831,7 @@
             <div class="contact-method"><div class="contact-method-icon"><i class="fas fa-envelope"></i></div><div class="contact-method-info"><h4>Email</h4><p><a href="mailto:info@nibras.com">info@nibras.com</a></p></div></div>
           </div>
 
-          <div class="contact-buttons">
-            <a href="tel:+919999999999" class="contact-action-btn call"><i class="fas fa-phone-alt"></i> Call Now</a>
-            <a href="https://wa.me/919999999999" class="contact-action-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://instagram.com/nibras" class="contact-action-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://facebook.com/nibras" class="contact-action-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-          </div>
+          <!-- Contact & Social buttons removed -->
 
           <div class="opening-hours">
             <h4><i class="fas fa-clock"></i> Opening Hours</h4>
@@ -2675,11 +2846,39 @@
       </div>
     </section>
 
+    <!-- UPDATED FOOTER WITH LEGAL LINKS -->
     <footer>
-      <div class="container footer-grid">
-        <div><h2>NIBRAS</h2><p>Where every bite becomes an experience.</p></div>
-        <div><h4>Quick Links</h4><a href="#home" onclick="showPage('homePage'); return false;">Home</a> <a href="#about" onclick="showPage('homePage'); return false;">About</a> <a href="#gallery" onclick="showPage('homePage'); return false;">Gallery</a></div>
-        <div><p>© 2026 NIBRAS. All Rights Reserved.</p></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h2>NIBRAS</h2>
+            <p style="margin-top: 1rem;">Where every bite becomes an experience.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#home" onclick="showPage('homePage'); return false;">Home</a>
+            <a href="#" onclick="showPage('menuItemsPage'); return false;">Menu</a>
+            <a href="#about" onclick="showPage('homePage'); return false;">About</a>
+            <a href="#gallery" onclick="showPage('homePage'); return false;">Gallery</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Refund/Cancellation Policy</a>
+            <a href="#">Delivery Policy</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:+919999999999">+91 99999 99999</a>
+            <a href="mailto:info@nibras.com">info@nibras.com</a>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem;">Poonoor, Kerala, India</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 NIBRAS. All Rights Reserved.</p>
+        </div>
       </div>
     </footer>
   </div>
@@ -2698,19 +2897,15 @@
           <div class="filter-pill-indicator" id="menuPillIndicator"></div>
 
           <button class="filter-btn active" data-filter="all">
-            <span class="filter-icon"><i class="fas fa-border-all"></i></span>
             <span class="filter-label">All</span>
           </button>
           <button class="filter-btn" data-filter="breakfast">
-            <span class="filter-icon"><i class="fas fa-bread-slice"></i></span>
             <span class="filter-label">Breakfast</span>
           </button>
           <button class="filter-btn" data-filter="lunch">
-            <span class="filter-icon"><i class="fas fa-bowl-rice"></i></span>
             <span class="filter-label">Lunch</span>
           </button>
           <button class="filter-btn" data-filter="dinner">
-            <span class="filter-icon"><i class="fas fa-drumstick-bite"></i></span>
             <span class="filter-label">Dinner</span>
           </button>
         </div>
@@ -2837,13 +3032,13 @@
       }
     }
 
-    // ====== HERO CAROUSEL DATA ======
+    // ====== HERO CAROUSEL DATA WITH IMAGES ======
     const slides = [
-      { brandIcon: 'M', brandName: 'Chicken Manthi<sup>™</sup>', title: "Kerala's Traditional Malabar Manthi with Aromatic Ghee Rice", desc: 'Tender chicken slow-cooked with soulful Malabar spices, served over fragrant ghee rice.', stats: [{ v: '₹320', l: 'Per Serving' }, { v: '15+', l: 'Spices' }, { v: '4.9★', l: 'Rated' }], blobColor: 'radial-gradient(circle at 35% 30%, #8a5a1a 0%, #4a3010 30%, #1a1005 65%, #000 100%)' },
-      { brandIcon: 'B', brandName: 'Nibras Biriyani<sup>™</sup>', title: 'Our Legendary Biriyani with Saffron Rice & Succulent Meat', desc: 'Long-grain basmati layered with saffron, slow-cooked meat, and our secret spice blend.', stats: [{ v: '₹350', l: 'Per Serving' }, { v: '20+', l: 'Ingredients' }, { v: '5.0★', l: 'Rated' }], blobColor: 'radial-gradient(circle at 35% 30%, #b8761a 0%, #6a3a0a 30%, #2a1405 65%, #000 100%)' },
-      { brandIcon: 'S', brandName: 'Kerala Sadya<sup>™</sup>', title: 'A Grand Feast on Banana Leaf with 20+ Traditional Dishes', desc: 'Avial, thoran, olan, pachadi, and payasam served traditionally on a fresh banana leaf.', stats: [{ v: '₹300', l: 'Per Serving' }, { v: '20+', l: 'Dishes' }, { v: '100%', l: 'Veg' }], blobColor: 'radial-gradient(circle at 35% 30%, #2a6a3a 0%, #184a22 30%, #0a1a10 65%, #000 100%)' },
-      { brandIcon: 'F', brandName: 'Malabar Fish Curry<sup>™</sup>', title: 'Kerala Style Fish Curry with Coconut & Kokum', desc: 'Fresh fish simmered in a tangy coconut gravy with kokum, curry leaves, and Malabar spices.', stats: [{ v: '₹280', l: 'Per Serving' }, { v: 'Fresh', l: 'Daily Catch' }, { v: '4.8★', l: 'Rated' }], blobColor: 'radial-gradient(circle at 35% 30%, #1a6a7a 0%, #0a3a4a 30%, #051a22 65%, #000 100%)' },
-      { brandIcon: 'P', brandName: 'Puttu & Kadala<sup>™</sup>', title: 'Steamed Rice Puttu with Black Chickpea Curry', desc: 'Soft steamed puttu layered with coconut, paired with a hearty kadala curry.', stats: [{ v: '₹120', l: 'Per Serving' }, { v: 'Traditional', l: 'Breakfast' }, { v: '4.9★', l: 'Rated' }], blobColor: 'radial-gradient(circle at 35% 30%, #6a4a2a 0%, #3a2418 30%, #1a0d05 65%, #000 100%)' }
+      { brandIcon: 'M', brandName: 'Chicken Manthi<sup>™</sup>', title: "Kerala's Traditional Malabar Manthi with Aromatic Ghee Rice", desc: 'Tender chicken slow-cooked with soulful Malabar spices, served over fragrant ghee rice.', stats: [{ v: '₹320', l: 'Per Serving' }, { v: '15+', l: 'Spices' }, { v: '4.9★', l: 'Rated' }], heroImage: 'hero1.jpg' },
+      { brandIcon: 'B', brandName: 'Nibras Biriyani<sup>™</sup>', title: 'Our Legendary Biriyani with Saffron Rice & Succulent Meat', desc: 'Long-grain basmati layered with saffron, slow-cooked meat, and our secret spice blend.', stats: [{ v: '₹350', l: 'Per Serving' }, { v: '20+', l: 'Ingredients' }, { v: '5.0★', l: 'Rated' }], heroImage: 'hero2.jpg' },
+      { brandIcon: 'S', brandName: 'Kerala Sadya<sup>™</sup>', title: 'A Grand Feast on Banana Leaf with 20+ Traditional Dishes', desc: 'Avial, thoran, olan, pachadi, and payasam served traditionally on a fresh banana leaf.', stats: [{ v: '₹300', l: 'Per Serving' }, { v: '20+', l: 'Dishes' }, { v: '100%', l: 'Veg' }], heroImage: 'hero3.jpg' },
+      { brandIcon: 'F', brandName: 'Malabar Fish Curry<sup>™</sup>', title: 'Kerala Style Fish Curry with Coconut & Kokum', desc: 'Fresh fish simmered in a tangy coconut gravy with kokum, curry leaves, and Malabar spices.', stats: [{ v: '₹280', l: 'Per Serving' }, { v: 'Fresh', l: 'Daily Catch' }, { v: '4.8★', l: 'Rated' }], heroImage: 'hero4.jpg' },
+      { brandIcon: 'P', brandName: 'Puttu & Kadala<sup>™</sup>', title: 'Steamed Rice Puttu with Black Chickpea Curry', desc: 'Soft steamed puttu layered with coconut, paired with a hearty kadala curry.', stats: [{ v: '₹120', l: 'Per Serving' }, { v: 'Traditional', l: 'Breakfast' }, { v: '4.9★', l: 'Rated' }], heroImage: 'hero5.jpg' }
     ];
 
     let currentSlide = 0;
@@ -2860,7 +3055,7 @@
     const csStat2Label = document.getElementById('csStat2Label');
     const csStat3 = document.getElementById('csStat3');
     const csStat3Label = document.getElementById('csStat3Label');
-    const csBlob = document.querySelector('.cs-blob');
+    const heroImage = document.getElementById('heroImage');
     const dots = document.querySelectorAll('.cs-dot');
 
     function applySlide(index, animate = true) {
@@ -2878,7 +3073,15 @@
         csStat2Label.textContent = s.stats[1].l;
         csStat3.textContent = s.stats[2].v;
         csStat3Label.textContent = s.stats[2].l;
-        csBlob.style.background = s.blobColor;
+        
+        // Update the hero image
+        if (heroImage) {
+          heroImage.style.opacity = '0';
+          setTimeout(() => {
+            heroImage.src = s.heroImage;
+            heroImage.style.opacity = '0.9';
+          }, 200);
+        }
       };
 
       if (animate) {
@@ -3133,17 +3336,47 @@
       if (!grid) return;
       grid.innerHTML = '';
       dishes.filter(d => filter === 'All' || d.cat === filter).forEach(d => {
-        grid.innerHTML += `<div class="dish-card"><img src="${d.img}" alt="${d.name}"><div class="dish-body"><div class="dish-name"><span>${d.name}</span><span class="dish-price">₹${d.price}</span></div><p class="dish-desc">${d.desc}</p><button class="order-btn" onclick="addToCart('${d.name}',${d.price}); showPage('orderPage');">Order Now</button></div></div>`;
+        grid.innerHTML += `
+          <div class="dish-card">
+            <img src="${d.img}" alt="${d.name}">
+            <div class="dish-body">
+              <div class="dish-name">
+                <span>${d.name}</span>
+                <span class="dish-price">₹${d.price}</span>
+              </div>
+              <p class="dish-desc">${d.desc}</p>
+              <div class="dish-actions">
+                <button class="order-btn" onclick="addToCart('${d.name}',${d.price}); showPage('orderPage');">
+                  <i class="fas fa-bolt"></i> Order Now
+                </button>
+                <button class="dish-cart-icon" onclick="addToCart('${d.name}',${d.price}); showPage('orderPage');">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
       });
     }
     renderDishes();
 
-    // ====== CART ======
+    // ====== CART & BADGE LOGIC ======
     let cart = [];
 
     function addToCart(name, price) {
       cart.push({ name, price });
+      updateCartBadges();
       renderOrderPage();
+    }
+
+    // Update the badge number dynamically
+    function updateCartBadges() {
+      const count = cart.length;
+      const badges = document.querySelectorAll('.cart-badge');
+      badges.forEach(badge => {
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+      });
     }
 
     function renderCartPage() {
@@ -3167,12 +3400,12 @@
       let total = 0;
       container.innerHTML = cart.map((c, i) => {
         total += c.price;
-        return `<div class="order-item-row"><div><strong>${c.name}</strong><br><small style="color: var(--text-muted);">₹${c.price}</small></div><div class="order-qty-control"><span style="margin-right: 10px; color: var(--gold-dark);">₹${c.price}</span><button class="qty-btn" onclick="removeItem(${i}); renderOrderPage();">✕</button></div></div>`;
+        return `<div class="order-item-row"><div><strong>${c.name}</strong><br><small style="color: var(--text-muted);">₹${c.price}</small></div><div class="order-qty-control"><span style="margin-right: 10px; color: var(--gold-dark);">₹${c.price}</span><button class="qty-btn" onclick="removeItem(${i}); renderOrderPage(); updateCartBadges();">✕</button></div></div>`;
       }).join('');
       container.innerHTML += `<div style="text-align: right; padding: 1rem; font-size: 1.3rem; color: var(--gold-dark); font-weight: bold;">Total: ₹${total}</div>`;
     }
 
-    window.removeItem = (i) => { cart.splice(i, 1); renderCartPage(); renderOrderPage(); };
+    window.removeItem = (i) => { cart.splice(i, 1); renderCartPage(); renderOrderPage(); updateCartBadges(); };
 
     document.getElementById('orderWhatsappPage').addEventListener('click', (e) => {
       e.preventDefault();
@@ -3186,6 +3419,7 @@
     renderCartPage();
     renderOrderPage();
     renderMenuItems();
+    updateCartBadges(); // Initialize badge count
     initSignaturePicker();
     setTimeout(() => initMenuPicker(), 200);
 
